@@ -158,11 +158,11 @@ export function computeRiskScore(project: Project, snapshot?: ProjectSnapshot): 
   const features = engineerFeatures(project, snapshot);
   const contributions = computeTreeContributions(features);
 
-  const baseValue = 0.25;
+  const baseValue = 0.10;
   const totalContribution = Object.values(contributions).reduce((a, b) => a + b, 0);
   const rawScore = baseValue + totalContribution;
 
-  return Math.max(0.01, Math.min(0.99, sigmoid(rawScore * 2.5)));
+  return Math.max(0.01, Math.min(0.99, rawScore));
 }
 
 export function computeShapFactors(project: Project, snapshot?: ProjectSnapshot): ShapFactor[] {

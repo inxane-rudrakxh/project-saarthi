@@ -240,7 +240,7 @@ interface SummaryCardProps {
   label: string;
   value: string;
   subValue?: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<any>;
   color: string;
   alert?: boolean;
 }

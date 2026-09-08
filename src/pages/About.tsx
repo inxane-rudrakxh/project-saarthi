@@ -233,7 +233,7 @@ function Section({
   title,
   children,
 }: {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<any>;
   title: string;
   children: React.ReactNode;
 }) {
@@ -257,7 +257,7 @@ function ModelCard({
 }: {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<any>;
 }) {
   return (
     <div className="p-4 rounded-lg bg-gray-50/80 border border-gray-100">

@@ -1,0 +1,6 @@
+project_id,project_name,sector,ministry,implementing_agency,state,approved_cost_cr,revised_cost_cr,original_start_date,original_completion_date,revised_completion_date,status
+PRJ-DEL-METRO,Delhi Metro Phase IV Expansion,Railways,Ministry of Housing and Urban Affairs,DMRC,Delhi,24948.00,29500.00,2019-12-01,2025-12-31,2026-12-31,Ongoing
+PRJ-MUM-METRO3,Mumbai Metro Line 3 (Colaba-Bandra-SEEPZ),Railways,Ministry of Housing and Urban Affairs,MMRCL,Maharashtra,23136.00,37276.00,2016-08-01,2021-12-31,2026-06-30,Ongoing
+PRJ-CHEN-PORT,Chennai Port to Maduravoyal Elevated Expressway,Road Transport and Highways,Ministry of Road Transport and Highways,NHAI,Tamil Nadu,1815.00,3570.00,2010-09-01,2014-09-30,2027-03-31,Ongoing
+PRJ-USBRL-RAIL,Udhampur-Srinagar-Baramulla Rail Link (USBRL),Railways,Ministry of Railways,Northern Railway,Jammu and Kashmir,6000.00,41119.00,2002-03-01,2007-08-15,2026-03-31,Ongoing
+PRJ-BKG-ATOMIC,Kudankulam Atomic Power Project Units 3 & 4,Atomic Energy,Department of Atomic Energy,NPCIL,Tamil Nadu,39849.00,49621.00,2017-06-01,2023-03-31,2026-12-31,Ongoing
