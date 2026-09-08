@@ -234,49 +234,60 @@ interface SectorHeatmapProps {
 export function SectorHeatmap({ projects }: SectorHeatmapProps) {
   const sectorStats = Array.from(new Set(projects.map((p) => p.sector))).map((sector) => {
     const projs = projects.filter((p) => p.sector === sector);
-    const avgRisk = projs.reduce((s, p) => s + p.riskScore, 0) / projs.length;
+    // Normalize riskScore in case DB has values scaled to 1-100 instead of 0-1
+    const avgRisk = projs.reduce((s, p) => s + (p.riskScore > 1 ? p.riskScore / 100 : p.riskScore), 0) / projs.length;
     const highRisk = projs.filter((p) => p.riskLevel === 'HIGH' || p.riskLevel === 'CRITICAL').length;
     return {
       sector,
       count: projs.length,
-      avgRisk,
+      avgRisk: Math.min(1, Math.max(0, avgRisk)), // Clamp between 0 and 1
       highRisk,
       totalCost: projs.reduce((s, p) => s + p.revisedCostCr, 0),
     };
   }).sort((a, b) => b.avgRisk - a.avgRisk);
 
   return (
-    <div className="space-y-1.5">
+    <div className="flex flex-col gap-1">
       {sectorStats.map((s) => {
-        const color = riskToColor(s.avgRisk);
-        const intensity = Math.min(1, s.avgRisk * 1.3);
+        // Find the RiskLevel so we can use its styling
+        let level: RiskLevel = 'LOW';
+        if (s.avgRisk >= 0.75) level = 'CRITICAL';
+        else if (s.avgRisk >= 0.55) level = 'HIGH';
+        else if (s.avgRisk >= 0.35) level = 'MEDIUM';
+
+        const styleConfig = RISK_COLORS[level];
+
         return (
           <div
             key={s.sector}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group"
+            className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-all border border-transparent cursor-pointer"
           >
-            <div className="w-40 shrink-0 text-sm font-medium text-gray-700 truncate">
-              {s.sector}
+            <div className="flex items-center gap-3 overflow-hidden flex-1">
+              <div className={`w-2 h-2 rounded-full ${styleConfig.dot} shrink-0`} />
+              <span className="text-sm font-medium text-gray-700 truncate group-hover:text-gray-900 transition-colors">
+                {s.sector}
+              </span>
             </div>
-            <div className="flex-1 relative h-7 rounded-md bg-gray-100 overflow-hidden">
-              <div
-                className="absolute inset-y-0 left-0 rounded-md transition-all duration-500"
-                style={{
-                  width: `${Math.max(8, intensity * 100)}%`,
-                  backgroundColor: color,
-                  opacity: 0.85,
-                }}
-              />
-              <div className="absolute inset-0 flex items-center justify-between px-2.5">
-                <span className="text-xs font-semibold text-white drop-shadow-sm">
-                  {(s.avgRisk * 100).toFixed(0)}% avg
-                </span>
-                <span className="text-xs font-medium text-gray-600">
-                  {s.count} projects
-                  {s.highRisk > 0 && (
-                    <span className="text-red-600 font-semibold"> · {s.highRisk} at risk</span>
-                  )}
-                </span>
+            
+            <div className="flex items-center gap-4 shrink-0 pl-4">
+              <span className="text-xs text-gray-700 font-medium w-12 text-right">
+                {(s.avgRisk * 100).toFixed(0)}% <span className="text-gray-400 font-normal">avg</span>
+              </span>
+              
+              <div className="w-[1px] h-3 bg-gray-200" />
+              
+              <span className="text-xs text-gray-500 w-16 text-right">
+                {s.count} projs
+              </span>
+
+              <div className="w-20 text-right">
+                {s.highRisk > 0 ? (
+                  <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${styleConfig.bg} ${styleConfig.text} border ${styleConfig.border}`}>
+                    {s.highRisk} at risk
+                  </span>
+                ) : (
+                  <span className="text-[11px] text-gray-400">All healthy</span>
+                )}
               </div>
             </div>
           </div>

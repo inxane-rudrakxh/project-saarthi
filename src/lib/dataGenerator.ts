@@ -1,6 +1,6 @@
 import type { Project, ProjectSnapshot, RiskLevel } from './types';
 
-const SECTORS = [
+export const SECTORS = [
   'Roads & Highways',
   'Railways',
   'Power',
@@ -11,98 +11,61 @@ const SECTORS = [
   'Rural Development',
   'Health',
   'Education',
+  'Atomic Energy'
 ] as const;
 
-const MINISTRIES: Record<string, string> = {
-  'Roads & Highways': 'Ministry of Road Transport & Highways',
-  Railways: 'Ministry of Railways',
-  Power: 'Ministry of Power',
-  'Urban Development': 'Ministry of Housing & Urban Affairs',
-  'Water Resources': 'Ministry of Jal Shakti',
-  Telecom: 'Ministry of Communications',
-  'Ports & Shipping': 'Ministry of Ports, Shipping & Waterways',
-  'Rural Development': 'Ministry of Rural Development',
-  Health: 'Ministry of Health & Family Welfare',
-  Education: 'Ministry of Education',
-};
-
-const AGENCIES: Record<string, string[]> = {
-  'Roads & Highways': ['NHAI', 'NHIDCL', 'PWD Maharashtra', 'PWD Tamil Nadu'],
-  Railways: ['IRCON International', 'RVNL', 'DFCCIL'],
-  Power: ['POWERGRID', 'NTPC', 'SECI'],
-  'Urban Development': ['DMRC', 'MahaMetro', 'NMRC'],
-  'Water Resources': ['CWC', 'NWDA'],
-  Telecom: ['BSNL', 'TCIL'],
-  'Ports & Shipping': ['JNPT', 'Chennai Port Trust'],
-  'Rural Development': ['NRLM', 'DDA'],
-  Health: ['AIIMS', 'ESIC'],
-  Education: ['CBIP', 'Kendriya Vidyalaya Sangathan'],
-};
-
-const STATES = [
-  'Maharashtra', 'Tamil Nadu', 'Uttar Pradesh', 'Karnataka',
-  'Gujarat', 'Rajasthan', 'West Bengal', 'Madhya Pradesh',
-  'Bihar', 'Telangana', 'Andhra Pradesh', 'Kerala',
-  'Odisha', 'Punjab', 'Haryana', 'Assam',
+const REAL_PROJECTS = [
+  { name: 'Delhi-Mumbai Expressway Phase 1', sector: 'Roads & Highways', state: 'Multi-State', agency: 'NHAI', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Mumbai-Ahmedabad High Speed Rail (Bullet Train)', sector: 'Railways', state: 'Multi-State', agency: 'NHSRCL', ministry: 'Ministry of Railways' },
+  { name: 'Navi Mumbai International Airport', sector: 'Urban Development', state: 'Maharashtra', agency: 'CIDCO', ministry: 'Ministry of Civil Aviation' },
+  { name: 'Chenab Bridge Railway Link', sector: 'Railways', state: 'Jammu & Kashmir', agency: 'Konkan Railway', ministry: 'Ministry of Railways' },
+  { name: 'Kudankulam Nuclear Power Plant Unit 3 & 4', sector: 'Atomic Energy', state: 'Tamil Nadu', agency: 'NPCIL', ministry: 'Department of Atomic Energy' },
+  { name: 'Polavaram Irrigation Project', sector: 'Water Resources', state: 'Andhra Pradesh', agency: 'PPA', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Ganga Expressway', sector: 'Roads & Highways', state: 'Uttar Pradesh', agency: 'UPEIDA', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Bengaluru Suburban Railway', sector: 'Railways', state: 'Karnataka', agency: 'K-RIDE', ministry: 'Ministry of Railways' },
+  { name: 'Zojila Tunnel Project', sector: 'Roads & Highways', state: 'Ladakh', agency: 'NHIDCL', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Pune Metro Rail Phase 1', sector: 'Urban Development', state: 'Maharashtra', agency: 'MahaMetro', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Noida International Airport (Jewar)', sector: 'Urban Development', state: 'Uttar Pradesh', agency: 'YIAPL', ministry: 'Ministry of Civil Aviation' },
+  { name: 'Ken-Betwa River Interlinking', sector: 'Water Resources', state: 'Madhya Pradesh', agency: 'NWDA', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Kaleshwaram Lift Irrigation', sector: 'Water Resources', state: 'Telangana', agency: 'KIP', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Mumbai Trans Harbour Link (Atal Setu)', sector: 'Roads & Highways', state: 'Maharashtra', agency: 'MMRDA', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Dedicated Freight Corridor (Western)', sector: 'Railways', state: 'Multi-State', agency: 'DFCCIL', ministry: 'Ministry of Railways' },
+  { name: 'Agra-Lucknow Expressway Upgradation', sector: 'Roads & Highways', state: 'Uttar Pradesh', agency: 'UPEIDA', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Bhadhbhut Barrage Project', sector: 'Water Resources', state: 'Gujarat', agency: 'Kalpasar', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Chennai Metro Phase 2', sector: 'Urban Development', state: 'Tamil Nadu', agency: 'CMRL', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Kochi Water Metro', sector: 'Urban Development', state: 'Kerala', agency: 'KWML', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'BharatNet Phase II', sector: 'Telecom', state: 'Multi-State', agency: 'BBNL', ministry: 'Ministry of Communications' },
+  { name: 'Subansiri Lower Hydroelectric Project', sector: 'Power', state: 'Arunachal Pradesh', agency: 'NHPC', ministry: 'Ministry of Power' },
+  { name: 'Vizhinjam International Seaport', sector: 'Ports & Shipping', state: 'Kerala', agency: 'VISL', ministry: 'Ministry of Ports, Shipping & Waterways' },
+  { name: 'Brahmaputra Bridge (Dhubri-Phulbari)', sector: 'Roads & Highways', state: 'Assam', agency: 'NHIDCL', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'AIIMS Madurai Construction', sector: 'Health', state: 'Tamil Nadu', agency: 'MoHFW', ministry: 'Ministry of Health & Family Welfare' },
+  { name: 'Patna Metro Rail Project', sector: 'Urban Development', state: 'Bihar', agency: 'PMRC', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Vadhavan Mega Port', sector: 'Ports & Shipping', state: 'Maharashtra', agency: 'JNPT', ministry: 'Ministry of Ports, Shipping & Waterways' },
+  { name: 'Gorakhpur Nuclear Power Plant', sector: 'Atomic Energy', state: 'Haryana', agency: 'NPCIL', ministry: 'Department of Atomic Energy' },
+  { name: 'Ahmedabad Metro Phase 2', sector: 'Urban Development', state: 'Gujarat', agency: 'GMRC', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Green Energy Corridor Phase 2', sector: 'Power', state: 'Multi-State', agency: 'PGCIL', ministry: 'Ministry of Power' },
+  { name: 'Dibang Multipurpose Project', sector: 'Power', state: 'Arunachal Pradesh', agency: 'NHPC', ministry: 'Ministry of Power' },
+  { name: 'Surat Metro Rail Project', sector: 'Urban Development', state: 'Gujarat', agency: 'GMRC', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Rishikesh-Karnaprayag Railway', sector: 'Railways', state: 'Uttarakhand', agency: 'RVNL', ministry: 'Ministry of Railways' },
+  { name: 'Delhi-Meerut RRTS', sector: 'Urban Development', state: 'Delhi/UP', agency: 'NCRTC', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Purvanchal Expressway Upgradation', sector: 'Roads & Highways', state: 'Uttar Pradesh', agency: 'UPEIDA', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Paradip Port Expansion', sector: 'Ports & Shipping', state: 'Odisha', agency: 'PPA', ministry: 'Ministry of Ports, Shipping & Waterways' },
+  { name: 'Rengali Irrigation Project', sector: 'Water Resources', state: 'Odisha', agency: 'CWC', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Indore Metro Rail', sector: 'Urban Development', state: 'Madhya Pradesh', agency: 'MPMRCL', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Kurnool Ultra Mega Solar Park', sector: 'Power', state: 'Andhra Pradesh', agency: 'APSPCL', ministry: 'Ministry of Power' },
+  { name: 'Sela Pass Tunnel', sector: 'Roads & Highways', state: 'Arunachal Pradesh', agency: 'BRO', ministry: 'Ministry of Defence' },
+  { name: 'Agartala-Akhaura Rail Link', sector: 'Railways', state: 'Tripura', agency: 'IRCON', ministry: 'Ministry of Railways' },
+  { name: 'Srinagar Ring Road', sector: 'Roads & Highways', state: 'Jammu & Kashmir', agency: 'NHAI', ministry: 'Ministry of Road Transport & Highways' },
+  { name: 'Bhopal Metro Rail', sector: 'Urban Development', state: 'Madhya Pradesh', agency: 'MPMRCL', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'National Maritime Heritage Complex', sector: 'Urban Development', state: 'Gujarat', agency: 'MoPSW', ministry: 'Ministry of Ports, Shipping & Waterways' },
+  { name: 'Khurda-Bolangir Railway Line', sector: 'Railways', state: 'Odisha', agency: 'East Coast Railway', ministry: 'Ministry of Railways' },
+  { name: 'Kanpur Metro Rail Project', sector: 'Urban Development', state: 'Uttar Pradesh', agency: 'UPMRC', ministry: 'Ministry of Housing & Urban Affairs' },
+  { name: 'Lower Subansiri Hydro Electric', sector: 'Power', state: 'Assam', agency: 'NHPC', ministry: 'Ministry of Power' },
+  { name: 'AIIMS Awantipora', sector: 'Health', state: 'Jammu & Kashmir', agency: 'MoHFW', ministry: 'Ministry of Health & Family Welfare' },
+  { name: 'Narmada Valley Project', sector: 'Water Resources', state: 'Madhya Pradesh', agency: 'NVDA', ministry: 'Ministry of Jal Shakti' },
+  { name: 'Kolkata East-West Metro', sector: 'Urban Development', state: 'West Bengal', agency: 'KMRCL', ministry: 'Ministry of Railways' },
+  { name: 'Delhi-Katra Expressway', sector: 'Roads & Highways', state: 'Multi-State', agency: 'NHAI', ministry: 'Ministry of Road Transport & Highways' }
 ];
-
-const PROJECT_NAME_TEMPLATES: Record<string, string[]> = {
-  'Roads & Highways': [
-    '{state} NH Expansion Phase {n}',
-    '{state} Expressway Corridor',
-    '{state} Ring Road Upgrade',
-    '{state} Highway Widening Project',
-  ],
-  Railways: [
-    '{state} Rail Line Electrification',
-    '{state} New Line Construction',
-    '{state} Station Redevelopment',
-    '{state} Dedicated Freight Corridor Section',
-  ],
-  Power: [
-    '{state} Transmission Network Expansion',
-    '{state} Solar Park Infrastructure',
-    '{state} Substation Modernization',
-    '{state} Power Grid Strengthening',
-  ],
-  'Urban Development': [
-    '{state} Metro Phase {n} Corridor',
-    '{state} Smart City Infrastructure',
-    '{state} Urban Water Supply Scheme',
-    '{state} Sewage Treatment Complex',
-  ],
-  'Water Resources': [
-    '{state} Irrigation Canal Network',
-    '{state} Dam Safety Modernization',
-    '{state} Drinking Water Project',
-    '{state} Flood Management Scheme',
-  ],
-  Telecom: [
-    '{state} BharatNet Fiber Network',
-    '{state} Telecom Tower Infrastructure',
-    '{state} 5G Core Network Rollout',
-  ],
-  'Ports & Shipping': [
-    '{state} Port Capacity Expansion',
-    '{state} Cargo Terminal Development',
-    '{state} Coastal Shipping Terminal',
-  ],
-  'Rural Development': [
-    '{state} Rural Road Connectivity',
-    '{state} Watershed Development Project',
-    '{state} Rural Housing Infrastructure',
-  ],
-  Health: [
-    '{state} AIIMS Construction Phase {n}',
-    '{state} District Hospital Upgrade',
-    '{state} Medical College Infrastructure',
-  ],
-  Education: [
-    '{state} IIT Campus Expansion',
-    '{state} Kendriya Vidyalaya Complex',
-    '{state} University Infrastructure Project',
-  ],
-};
 
 function seededRandom(seed: number): () => number {
   let s = seed;
@@ -147,37 +110,38 @@ export interface GeneratedData {
   modelMetrics: import('./types').ModelMetric[];
 }
 
-export function generateData(numProjects = 42, seed = 42): GeneratedData {
+export function generateData(numProjects = 50, seed = 42): GeneratedData {
   const rng = seededRandom(seed);
   const projects: Project[] = [];
   const today = new Date('2026-09-08');
 
-  for (let i = 0; i < numProjects; i++) {
-    const sector = pick(SECTORS, rng);
-    const state = pick(STATES, rng);
-    const templates = PROJECT_NAME_TEMPLATES[sector];
-    const nameTemplate = pickFrom(templates, rng);
-    const phaseNum = Math.floor(rng() * 3) + 1;
-    const name = nameTemplate
-      .replace('{state}', state)
-      .replace('{n}', String(phaseNum));
+  // Limit numProjects to available real projects to avoid out-of-bounds
+  const actualNumProjects = Math.min(numProjects, REAL_PROJECTS.length);
 
-    const agency = pickFrom(AGENCIES[sector], rng);
-    const ministry = MINISTRIES[sector];
+  for (let i = 0; i < actualNumProjects; i++) {
+    const realProj = REAL_PROJECTS[i];
+    const name = realProj.name;
+    const sector = realProj.sector;
+    const state = realProj.state;
+    const agency = realProj.agency;
+    const ministry = realProj.ministry;
 
-    const approvedCostCr = roundTo(50 + rng() * 1950, 2);
+    // Realistic mega project budgets: 5000 Cr to 85000 Cr
+    const approvedCostCr = roundTo(5000 + rng() * 80000, 2);
 
-    const startMonthsAgo = Math.floor(rng() * 72) + 6;
+    // Constrain start date to between 2021 and 2024 (roughly 30 to 66 months ago)
+    const startMonthsAgo = 30 + Math.floor(rng() * 36);
     const originalStartDate = addMonths(today, -startMonthsAgo);
 
-    const originalDurationMonths = Math.floor(rng() * 48) + 12;
+    // Duration is 3 to 6 years
+    const originalDurationMonths = 36 + Math.floor(rng() * 36);
     const originalCompletionDate = addMonths(originalStartDate, originalDurationMonths);
 
     // Causal risk drivers
-    const complexityScore = rng();
-    const fundingStability = rng();
-    const agencyCapacity = rng();
-    const landAcquisitionEase = rng();
+    const complexityScore = rng() * 0.6; 
+    const fundingStability = 0.4 + rng() * 0.6;
+    const agencyCapacity = 0.4 + rng() * 0.6;
+    const landAcquisitionEase = 0.4 + rng() * 0.6;
 
     const compositeRisk = 1 - (
       fundingStability * 0.25 +
@@ -213,7 +177,7 @@ export function generateData(numProjects = 42, seed = 42): GeneratedData {
     // Generate monthly snapshots
     const snapshots: ProjectSnapshot[] = [];
     const totalMonths = Math.max(6, Math.floor((today.getTime() - originalStartDate.getTime()) / (30 * 24 * 60 * 60 * 1000)));
-    const numSnapshots = Math.min(totalMonths, 24);
+    const numSnapshots = Math.min(totalMonths, 36);
 
     for (let m = 0; m < numSnapshots; m++) {
       const snapDate = addMonths(originalStartDate, m);
@@ -389,5 +353,3 @@ export function generateData(numProjects = 42, seed = 42): GeneratedData {
 
   return { projects, modelMetrics };
 }
-
-export { SECTORS, MINISTRIES, STATES };

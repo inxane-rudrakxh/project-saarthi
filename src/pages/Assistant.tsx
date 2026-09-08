@@ -4,7 +4,8 @@ import { useData } from '@/lib/DataContext';
 import { answerQuery, SUGGESTED_QUESTIONS, type AssistantAnswer } from '@/lib/assistantEngine';
 import type { Citation } from '@/lib/assistantEngine';
 import { Link } from 'react-router-dom';
-
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 interface Message {
   role: 'user' | 'assistant';
   text: string;
@@ -15,26 +16,33 @@ export default function Assistant() {
   const { projects, alerts, loading } = useData();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [messages, isTyping]);
 
-  const handleSend = (question?: string) => {
+  const handleSend = async (question?: string) => {
     const q = (question ?? input).trim();
-    if (!q || loading || projects.length === 0) return;
-
-    const answer: AssistantAnswer = answerQuery(q, projects, alerts);
+    if (!q || loading || projects.length === 0 || isTyping) return;
 
     setMessages((prev) => [
       ...prev,
       { role: 'user', text: q, citations: [] },
-      { role: 'assistant', text: answer.text, citations: answer.citations },
     ]);
     setInput('');
+    setIsTyping(true);
+
+    const answer = await answerQuery(q, projects, alerts);
+
+    setMessages((prev) => [
+      ...prev,
+      { role: 'assistant', text: answer.text, citations: answer.citations },
+    ]);
+    setIsTyping(false);
   };
 
   return (
@@ -109,7 +117,15 @@ export default function Assistant() {
                       : 'bg-white border border-gray-200 text-gray-800'
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-line leading-relaxed">{msg.text}</p>
+                  {msg.role === 'user' ? (
+                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.text}</p>
+                  ) : (
+                    <div className="text-sm prose prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-gray-100 prose-pre:text-gray-800 prose-a:text-[#0f4c5c]">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {msg.text}
+                      </ReactMarkdown>
+                    </div>
+                  )}
 
                   {/* Citations */}
                   {msg.citations.length > 0 && (
@@ -133,6 +149,23 @@ export default function Assistant() {
               </div>
             </div>
           ))}
+
+          {isTyping && (
+            <div className="flex gap-3">
+              <div className="w-8 h-8 rounded-lg bg-[#0f4c5c] flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4 text-white animate-pulse" strokeWidth={2} />
+              </div>
+              <div className="flex-1 flex justify-start">
+                <div className="inline-block rounded-xl px-4 py-3 bg-white border border-gray-200">
+                  <div className="flex space-x-1.5 items-center h-5">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

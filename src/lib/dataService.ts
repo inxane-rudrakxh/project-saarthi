@@ -145,7 +145,7 @@ export async function seedData(): Promise<void> {
   const alerts = generateAlerts(scoredProjects);
 
   // Clear existing data
-  await supabase.from('alerts').delete().neq('id', 0);
+  await supabase.from('alerts').delete().gte('id', 0);
   await supabase.from('project_snapshots').delete().neq('id', 0);
   await supabase.from('projects').delete().neq('id', '');
   await supabase.from('model_metrics').delete().neq('id', '');

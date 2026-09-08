@@ -263,8 +263,8 @@ function SummaryCard({ label, value, subValue, icon: Icon, color, alert }: Summa
       </div>
       {alert && (
         <div
-          className="absolute bottom-0 left-0 right-0 h-0.5"
-          style={{ backgroundColor: color }}
+          className="absolute inset-y-0 left-0 w-12 pointer-events-none"
+          style={{ background: `linear-gradient(to right, ${color}15, transparent)` }}
         />
       )}
     </div>

@@ -81,9 +81,12 @@ export default function Alerts() {
               <Link
                 key={alert.id}
                 to={`/projects/${alert.projectId}`}
-                className="card p-5 flex items-start gap-4 hover:shadow-md transition-all group border-l-4"
-                style={{ borderLeftColor: colors.hex }}
+                className="card p-5 flex items-start gap-4 hover:shadow-md transition-all group relative overflow-hidden"
               >
+                <div
+                  className="absolute inset-y-0 left-0 w-16 pointer-events-none"
+                  style={{ background: `linear-gradient(to right, ${colors.hex}10, transparent)` }}
+                />
                 {/* Level indicator */}
                 <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center shrink-0`}>
                   <AlertTriangle className={`w-5 h-5 ${colors.text}`} strokeWidth={2.2} />
