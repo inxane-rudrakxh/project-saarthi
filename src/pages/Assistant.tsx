@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, Sparkles, ArrowRight, User } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
-import { answerQuery, SUGGESTED_QUESTIONS, type AssistantAnswer } from '@/lib/assistantEngine';
-import type { Citation } from '@/lib/assistantEngine';
-import { Link } from 'react-router-dom';
+import { answerQuery, SUGGESTED_QUESTIONS } from '@/lib/assistantEngine';
+import { Link, useSearchParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import ReactECharts from 'echarts-for-react';
@@ -14,11 +13,25 @@ export default function Assistant() {
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const processedQuery = useRef<string | null>(null);
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [chatMessages, isTyping]);
+
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q && !loading && projects.length > 0 && !isTyping) {
+      if (processedQuery.current !== q) {
+        processedQuery.current = q;
+        setSearchParams({});
+        handleSend(q);
+      }
+    }
+  }, [searchParams, loading, projects, isTyping, setSearchParams]);
 
   const handleSend = async (question?: string) => {
     const q = (question ?? input).trim();
@@ -43,13 +56,13 @@ export default function Assistant() {
   return (
     <div className="flex flex-col h-full animate-fade-in">
       {/* Header */}
-      <div className="px-8 pt-8 pb-4 border-b border-gray-200/80">
+      <div className="px-8 pt-8 pb-4 border-b border-[#dde3ef]">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-2.5 mb-1">
-            <div className="w-8 h-8 rounded-lg bg-[#0f4c5c] flex items-center justify-center">
-              <Sparkles className="w-4.5 h-4.5 text-white" strokeWidth={2.2} />
+            <div className="w-8 h-8 rounded-lg bg-[#1B2B5E] flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-[#F5A623]" strokeWidth={2.2} />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Saarthi Assistant</h1>
+            <h1 className="text-2xl font-bold text-[#0D1B3E]">Saarthi Assistant</h1>
           </div>
           <p className="text-sm text-gray-500 ml-11">
             Ask questions about project risks, cost overruns, delays, and sector performance
@@ -62,8 +75,8 @@ export default function Assistant() {
         <div className="max-w-3xl mx-auto space-y-4">
           {chatMessages.length === 0 && (
             <div className="text-center py-12">
-              <div className="w-14 h-14 rounded-2xl bg-[#0f4c5c]/5 flex items-center justify-center mx-auto mb-4">
-                <MessageSquare className="w-7 h-7 text-[#0f4c5c]" strokeWidth={1.8} />
+              <div className="w-14 h-14 rounded-2xl bg-[#1B2B5E]/8 flex items-center justify-center mx-auto mb-4">
+                <MessageSquare className="w-7 h-7 text-[#1B2B5E]" strokeWidth={1.8} />
               </div>
               <h2 className="text-base font-semibold text-gray-700 mb-1">Ask me anything about your projects</h2>
               <p className="text-sm text-gray-400 mb-6">I ground every answer in real project data</p>
@@ -73,10 +86,10 @@ export default function Assistant() {
                   <button
                     key={q}
                     onClick={() => handleSend(q)}
-                    className="text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-[#0f4c5c] hover:bg-[#0f4c5c]/5 transition-all text-sm text-gray-600 hover:text-[#0f4c5c] flex items-center justify-between group"
+                    className="text-left px-4 py-3 rounded-lg border border-[#dde3ef] hover:border-[#F5A623] hover:bg-[#fef3d8] transition-all text-sm text-gray-600 hover:text-[#1B2B5E] flex items-center justify-between group"
                   >
                     {q}
-                    <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#0f4c5c] transition-colors" />
+                    <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#F5A623] transition-colors" />
                   </button>
                 ))}
               </div>
@@ -92,14 +105,14 @@ export default function Assistant() {
               <div
                 className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                   msg.role === 'user'
-                    ? 'bg-gray-200'
-                    : 'bg-[#0f4c5c]'
+                    ? 'bg-[#e8ecf7]'
+                    : 'bg-[#1B2B5E]'
                 }`}
               >
                 {msg.role === 'user' ? (
-                  <User className="w-4 h-4 text-gray-500" strokeWidth={2} />
+                  <User className="w-4 h-4 text-[#1B2B5E]" strokeWidth={2} />
                 ) : (
-                  <Sparkles className="w-4 h-4 text-white" strokeWidth={2} />
+                  <Sparkles className="w-4 h-4 text-[#F5A623]" strokeWidth={2} />
                 )}
               </div>
 
@@ -108,22 +121,22 @@ export default function Assistant() {
                 <div
                   className={`inline-block max-w-full rounded-xl px-4 py-3 ${
                     msg.role === 'user'
-                      ? 'bg-[#0f4c5c] text-white'
-                      : 'bg-white border border-gray-200 text-gray-800'
+                      ? 'bg-[#1B2B5E] text-white'
+                      : 'bg-white border border-[#dde3ef] text-gray-800'
                   }`}
                 >
                   {msg.role === 'user' ? (
                     <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.text}</p>
                   ) : (
-                    <div className="text-sm prose prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-gray-100 prose-pre:text-gray-800 prose-a:text-[#0f4c5c]">
-                      <ReactMarkdown 
+                    <div className="text-sm prose prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-[#e8ecf7] prose-pre:text-gray-800 prose-a:text-[#1565C0]">
+                      <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         components={{
                           code(props: any) {
                             const {children, className, node, ...rest} = props;
                             const match = /language-(\w+)/.exec(className || '');
                             const isJson = match && match[1] === 'json';
-                            
+
                             if (isJson) {
                               try {
                                 const config = JSON.parse(String(children).replace(/\n$/, ''));
@@ -131,7 +144,7 @@ export default function Assistant() {
                                   let option = {};
                                   if (config.type === 'bar') {
                                     option = {
-                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#0D1B3E' } },
                                       tooltip: { trigger: 'axis', axisPointer: { type: 'none' } },
                                       xAxis: { type: 'category', data: config.labels, axisLabel: { interval: 0, rotate: 30, fontSize: 10 } },
                                       yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
@@ -139,13 +152,13 @@ export default function Assistant() {
                                         name: d.label,
                                         type: 'bar',
                                         data: d.data,
-                                        itemStyle: { color: i === 0 ? '#0f4c5c' : '#f97316', borderRadius: [4, 4, 0, 0] }
+                                        itemStyle: { color: i === 0 ? '#1B2B5E' : '#F5A623', borderRadius: [4, 4, 0, 0] }
                                       })),
                                       grid: { top: 40, right: 10, bottom: 40, left: 40 }
                                     };
                                   } else if (config.type === 'line') {
                                     option = {
-                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#0D1B3E' } },
                                       tooltip: { trigger: 'axis' },
                                       xAxis: { type: 'category', data: config.labels, axisLabel: { fontSize: 10 } },
                                       yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
@@ -154,13 +167,13 @@ export default function Assistant() {
                                         type: 'line',
                                         data: d.data,
                                         smooth: true,
-                                        itemStyle: { color: i === 0 ? '#0f4c5c' : '#f97316' }
+                                        itemStyle: { color: i === 0 ? '#1B2B5E' : '#F5A623' }
                                       })),
                                       grid: { top: 40, right: 10, bottom: 30, left: 40 }
                                     };
                                   } else if (config.type === 'pie') {
                                     option = {
-                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#0D1B3E' } },
                                       tooltip: { trigger: 'item' },
                                       series: [
                                         {
@@ -179,9 +192,9 @@ export default function Assistant() {
                                       ]
                                     };
                                   }
-                      
+
                                   return (
-                                    <div className="my-4 p-4 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden" style={{ minWidth: 300 }}>
+                                    <div className="my-4 p-4 rounded-xl border border-[#dde3ef] bg-white shadow-sm overflow-hidden" style={{ minWidth: 300 }}>
                                       <ReactECharts option={option} style={{ height: 260, width: '100%' }} />
                                     </div>
                                   );
@@ -209,7 +222,7 @@ export default function Assistant() {
                         <Link
                           key={j}
                           to={`/projects/${cit.projectId}`}
-                          className={`flex items-center gap-1.5 text-xs ${msg.role === 'user' ? 'text-white/80 hover:text-white' : 'text-[#0f4c5c] hover:underline'}`}
+                          className={`flex items-center gap-1.5 text-xs ${msg.role === 'user' ? 'text-white/80 hover:text-white' : 'text-[#1565C0] hover:underline'}`}
                         >
                           <ArrowRight className="w-3 h-3" />
                           {cit.projectName}
@@ -224,15 +237,15 @@ export default function Assistant() {
 
           {isTyping && (
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#0f4c5c] flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4 text-white animate-pulse" strokeWidth={2} />
+              <div className="w-8 h-8 rounded-lg bg-[#1B2B5E] flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4 text-[#F5A623] animate-pulse" strokeWidth={2} />
               </div>
               <div className="flex-1 flex justify-start">
-                <div className="inline-block rounded-xl px-4 py-3 bg-white border border-gray-200">
+                <div className="inline-block rounded-xl px-4 py-3 bg-white border border-[#dde3ef]">
                   <div className="flex space-x-1.5 items-center h-5">
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="w-1.5 h-1.5 bg-[#1B2B5E]/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-1.5 h-1.5 bg-[#1B2B5E]/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-1.5 h-1.5 bg-[#1B2B5E]/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                 </div>
               </div>
@@ -242,7 +255,7 @@ export default function Assistant() {
       </div>
 
       {/* Input */}
-      <div className="px-8 py-4 border-t border-gray-200/80 bg-white">
+      <div className="px-8 py-4 border-t border-[#dde3ef] bg-white">
         <div className="max-w-3xl mx-auto flex items-center gap-2">
           <input
             type="text"

@@ -12,9 +12,12 @@ import {
   CheckCircle2,
   XCircle,
   LucideIcon,
+  Sparkles,
+  Loader2,
+  Printer,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
-import { RISK_COLORS, formatCurrency, formatDate, riskToColor } from '@/lib/ui';
+import { RISK_COLORS, formatCurrency, formatDate } from '@/lib/ui';
 import { RiskGauge, RiskTrendChart, ProgressChart } from '@/components/Charts';
 import { ShapExplainer } from '@/components/ShapExplainer';
 import { analyzeTrend } from '@/lib/riskEngine';
@@ -32,7 +35,7 @@ export default function ProjectDetail() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Building2 className="w-8 h-8 text-[#0f4c5c] animate-pulse" />
+        <Loader2 className="w-8 h-8 text-gov-navy animate-spin" />
       </div>
     );
   }
@@ -40,11 +43,11 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="p-8 max-w-4xl mx-auto">
-        <Link to="/projects" className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4">
+        <Link to="/projects" className="flex items-center gap-1.5 text-sm font-bold text-gov-blue hover:underline mb-4">
           <ArrowLeft className="w-4 h-4" /> Back to projects
         </Link>
-        <div className="card p-12 text-center">
-          <p className="text-sm text-gray-400">Project not found.</p>
+        <div className="card p-12 text-center border-gov-gray">
+          <p className="text-sm font-bold text-gray-500">Official record not found.</p>
         </div>
       </div>
     );
@@ -54,30 +57,52 @@ export default function ProjectDetail() {
   const trend = analyzeTrend(project);
   const latestSnap = project.snapshots[project.snapshots.length - 1];
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="p-8 max-w-7xl mx-auto animate-fade-in">
-      {/* Breadcrumb */}
-      <button
-        onClick={() => navigate('/projects')}
-        className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4 transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4" /> All Projects
-      </button>
+    <div className="p-8 w-full print-page">
+      {/* Breadcrumb & Actions */}
+      <div className="flex items-center justify-between mb-4">
+        <button
+          onClick={() => navigate('/projects')}
+          className="flex items-center gap-1.5 text-sm font-bold text-gov-blue hover:underline transition-colors print:hidden"
+        >
+          <ArrowLeft className="w-4 h-4" /> All Projects
+        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={handlePrint}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-300 text-gov-navy-dark text-sm font-medium rounded-md hover:bg-gray-50 transition-colors shadow-sm print:hidden"
+          >
+            <Printer className="w-4 h-4 text-gov-navy" />
+            Export to PDF
+          </button>
+          <Link
+            to={`/assistant?q=${encodeURIComponent(`Give me a brief summary of ${project.name} (${project.id}) and explain its primary risk factors.`)}`}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#112e51] text-white text-sm font-medium rounded-md hover:bg-[#0b1d33] transition-colors shadow-sm print:hidden"
+          >
+            <Sparkles className="w-4 h-4 text-[#F5A623]" />
+            Ask AI about this project
+          </Link>
+        </div>
+      </div>
 
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-6 border-b-4 border-gov-navy-dark pb-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-mono text-gray-400">{project.id}</span>
-          <span className="text-gray-300">·</span>
-          <span className="text-xs font-medium text-gray-500">{project.sector}</span>
+          <span className="text-xs font-mono font-bold text-gov-gray-dark">{project.id}</span>
+          <span className="text-gray-400">·</span>
+          <span className="text-xs font-bold uppercase text-gov-navy">{project.sector}</span>
           {project.status !== 'Ongoing' && (
-            <span className="badge bg-gray-100 text-gray-600 border-gray-200">{project.status}</span>
+            <span className="badge bg-gray-200 text-gray-800 border-gray-400">{project.status}</span>
           )}
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">{project.name}</h1>
-        <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
-          <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {project.state}</span>
-          <span className="flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5" /> {project.implementingAgency}</span>
+        <h1 className="text-3xl font-bold text-gov-navy-dark uppercase">{project.name}</h1>
+        <div className="flex items-center gap-4 mt-3 text-sm font-bold text-gov-gray-dark">
+          <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-gov-navy" /> {project.state}</span>
+          <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-gov-navy" /> {project.implementingAgency}</span>
         </div>
       </div>
 
@@ -85,18 +110,18 @@ export default function ProjectDetail() {
       <div className="grid grid-cols-3 gap-6 mb-6">
         {/* Risk gauge */}
         <div className="card p-6">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">AI Risk Assessment</h3>
+          <h3 className="text-base font-semibold text-gov-navy-dark mb-4 border-b border-gray-200 pb-2">Official Risk Assessment</h3>
           <RiskGauge score={project.riskScore} level={project.riskLevel} size={200} />
-          <div className="mt-4 pt-4 border-t border-gray-100">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-500">Trend (last {trend.snapshotsAnalyzed}mo)</span>
+          <div className="mt-4 pt-4 border-t-2 border-gray-200">
+            <div className="flex items-center justify-between text-sm font-bold">
+              <span className="text-gov-gray-dark">Trend (last {trend.snapshotsAnalyzed}mo)</span>
               {trend.isDeteriorating ? (
-                <span className="flex items-center gap-1 text-red-600 font-medium">
-                  <TrendingUp className="w-3.5 h-3.5" /> Deteriorating (+{(trend.recentDelta * 100).toFixed(1)}%)
+                <span className="flex items-center gap-1 text-gov-red">
+                  <TrendingUp className="w-4 h-4" /> Deteriorating (+{(trend.recentDelta * 100).toFixed(1)}%)
                 </span>
               ) : (
-                <span className="flex items-center gap-1 text-emerald-600 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Stable
+                <span className="flex items-center gap-1 text-gov-green">
+                  <CheckCircle2 className="w-4 h-4" /> Stable
                 </span>
               )}
             </div>
@@ -105,8 +130,8 @@ export default function ProjectDetail() {
 
         {/* Key metrics */}
         <div className="card p-6">
-          <h3 className="text-sm font-semibold text-gray-900 mb-4">Key Metrics</h3>
-          <div className="space-y-3.5">
+          <h3 className="text-base font-semibold text-gov-navy-dark mb-4 border-b border-gray-200 pb-2">Key Metrics</h3>
+          <div className="space-y-4">
             <MetricRow
               icon={IndianRupee}
               label="Approved Cost"
@@ -116,13 +141,13 @@ export default function ProjectDetail() {
               icon={IndianRupee}
               label="Revised Cost"
               value={formatCurrency(project.revisedCostCr)}
-              accent={project.costOverrunPct > 15 ? 'text-orange-600' : 'text-gray-700'}
+              accent={project.costOverrunPct > 15 ? 'text-gov-red' : 'text-gov-navy'}
             />
             <MetricRow
               icon={TrendingUp}
               label="Cost Overrun"
               value={`+${project.costOverrunPct.toFixed(1)}%`}
-              accent={project.costOverrunPct > 15 ? 'text-orange-600 font-semibold' : 'text-gray-700'}
+              accent={project.costOverrunPct > 15 ? 'text-gov-red' : 'text-gov-navy'}
             />
             <MetricRow
               icon={Calendar}
@@ -133,13 +158,14 @@ export default function ProjectDetail() {
               icon={Clock}
               label="Time Overrun"
               value={project.delayDays > 0 ? `${Math.round(project.delayDays / 30)} months` : 'On schedule'}
-              accent={project.delayDays > 180 ? 'text-red-600 font-semibold' : 'text-gray-700'}
+              accent={project.delayDays > 180 ? 'text-gov-red' : 'text-gov-navy'}
             />
           </div>
         </div>
 
         {/* SHAP explainer */}
         <div className="card p-6">
+          <h3 className="text-base font-semibold text-gov-navy-dark mb-4 border-b border-gray-200 pb-2">Risk Factor Attribution</h3>
           <ShapExplainer factors={project.shapFactors} />
         </div>
       </div>
@@ -147,20 +173,20 @@ export default function ProjectDetail() {
       {/* Charts section */}
       <div className="grid grid-cols-2 gap-6 mb-6">
         <div className="card p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 border-b-2 border-gray-200 pb-2">
             <div>
-              <h3 className="text-sm font-semibold text-gray-900">Risk Score Trend</h3>
-              <p className="text-xs text-gray-400 mt-0.5">Monthly AI risk assessment over time</p>
+              <h3 className="text-base font-semibold text-gov-navy-dark">Risk Score Trend</h3>
+              <p className="text-xs font-medium text-gov-gray-dark mt-1">Monthly risk assessment over time</p>
             </div>
           </div>
           <RiskTrendChart project={project} height={240} />
         </div>
 
         <div className="card p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 border-b-2 border-gray-200 pb-2">
             <div>
-              <h3 className="text-sm font-semibold text-gray-900">Progress Tracking</h3>
-              <p className="text-xs text-gray-400 mt-0.5">Physical vs financial progress</p>
+              <h3 className="text-base font-semibold text-gov-navy-dark">Progress Tracking</h3>
+              <p className="text-xs font-medium text-gov-gray-dark mt-1">Physical vs financial progress</p>
             </div>
           </div>
           <ProgressChart project={project} height={240} />
@@ -171,7 +197,7 @@ export default function ProjectDetail() {
       {latestSnap && (
         <div className="grid grid-cols-3 gap-6">
           <div className="col-span-2 card p-6">
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Latest Monitoring Snapshot</h3>
+            <h3 className="text-base font-semibold text-gov-navy-dark mb-4 border-b border-gray-200 pb-2">Latest Monitoring Snapshot</h3>
             <div className="grid grid-cols-4 gap-4">
               <StatBox
                 label="Physical Progress"
@@ -192,33 +218,33 @@ export default function ProjectDetail() {
               />
             </div>
 
-            <div className="mt-6 pt-5 border-t border-gray-100">
-              <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Milestone Status</h4>
+            <div className="mt-6 pt-5 border-t-2 border-gray-200">
+              <h4 className="text-xs font-bold text-gov-navy uppercase tracking-wide mb-3">Milestone Status</h4>
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span className="text-sm text-gray-700">
-                    <span className="font-semibold">{latestSnap.milestonesAchieved}</span> achieved
+                  <CheckCircle2 className="w-5 h-5 text-gov-green" />
+                  <span className="text-sm font-bold text-gray-800">
+                    <span className="text-gov-green">{latestSnap.milestonesAchieved}</span> achieved
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <XCircle className="w-4 h-4 text-orange-500" />
-                  <span className="text-sm text-gray-700">
-                    <span className="font-semibold">{latestSnap.milestonesDelayed}</span> delayed
+                  <XCircle className="w-5 h-5 text-gov-red" />
+                  <span className="text-sm font-bold text-gray-800">
+                    <span className="text-gov-red">{latestSnap.milestonesDelayed}</span> delayed
                   </span>
                 </div>
                 <div className="flex-1">
-                  <div className="h-2 rounded-full bg-gray-100 overflow-hidden flex">
+                  <div className="h-3 bg-gray-200 border border-gray-300 flex">
                     <div
-                      className="h-full bg-emerald-500"
+                      className="h-full bg-gov-green"
                       style={{ width: `${(latestSnap.milestonesAchieved / latestSnap.milestonesTotal) * 100}%` }}
                     />
                     <div
-                      className="h-full bg-orange-400"
+                      className="h-full bg-gov-red"
                       style={{ width: `${(latestSnap.milestonesDelayed / latestSnap.milestonesTotal) * 100}%` }}
                     />
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">{latestSnap.milestonesTotal} total milestones</p>
+                  <p className="text-xs font-bold text-gov-gray-dark mt-2">{latestSnap.milestonesTotal} total milestones</p>
                 </div>
               </div>
             </div>
@@ -226,8 +252,8 @@ export default function ProjectDetail() {
 
           {/* Project info */}
           <div className="card p-6">
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Project Information</h3>
-            <div className="space-y-3 text-sm">
+            <h3 className="text-base font-semibold text-gov-navy-dark mb-4 border-b border-gray-200 pb-2">Project Information</h3>
+            <div className="space-y-4 text-sm">
               <InfoRow label="Ministry" value={project.ministry} />
               <InfoRow label="Agency" value={project.implementingAgency} />
               <InfoRow label="Start Date" value={formatDate(project.originalStartDate)} />
@@ -238,13 +264,13 @@ export default function ProjectDetail() {
               <InfoRow label="Status" value={project.status} />
               <InfoRow
                 label="Cost Overrun Flag"
-                value={project.costOverrunFlag ? 'Yes' : 'No'}
-                accent={project.costOverrunFlag ? 'text-orange-600' : undefined}
+                value={project.costOverrunFlag ? 'YES' : 'NO'}
+                accent={project.costOverrunFlag ? 'text-gov-red' : undefined}
               />
               <InfoRow
                 label="Time Overrun Flag"
-                value={project.timeOverrunFlag ? 'Yes' : 'No'}
-                accent={project.timeOverrunFlag ? 'text-red-600' : undefined}
+                value={project.timeOverrunFlag ? 'YES' : 'NO'}
+                accent={project.timeOverrunFlag ? 'text-gov-red' : undefined}
               />
             </div>
           </div>
@@ -253,15 +279,17 @@ export default function ProjectDetail() {
 
       {/* Alert banner if applicable */}
       {project.riskLevel === 'CRITICAL' || project.riskLevel === 'HIGH' ? (
-        <div className={`mt-6 card p-4 border-l-4 ${colors.border} ${colors.bg} flex items-center gap-3`}>
-          <AlertTriangle className={`w-5 h-5 ${colors.text}`} />
+        <div className={`mt-6 card p-5 border-l-8 ${colors.border} ${colors.bg} flex items-center gap-4`}>
+          <AlertTriangle className={`w-8 h-8 ${colors.text}`} />
           <div>
-            <p className={`text-sm font-semibold ${colors.text}`}>
+            <p className={`text-base font-bold uppercase tracking-wide ${colors.text}`}>
               {project.riskLevel === 'CRITICAL' ? 'Critical Risk Alert' : 'High Risk Warning'}
             </p>
-            <p className="text-xs text-gray-600 mt-0.5">
-              This project has been flagged by the AI engine. Primary drivers: {' '}
-              {project.shapFactors.filter(f => f.direction === 'risk_up').slice(0, 3).map(f => f.feature).join(', ')}.
+            <p className="text-sm font-medium text-gray-800 mt-1">
+              This project has been flagged by the official assessment engine. Primary drivers:{' '}
+              <span className="text-black">
+                {project.shapFactors.filter(f => f.direction === 'risk_up').slice(0, 3).map(f => f.feature).join(', ')}
+              </span>.
             </p>
           </div>
         </div>
@@ -283,29 +311,29 @@ function MetricRow({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2.5">
-        <Icon className="w-4 h-4 text-gray-400" strokeWidth={2} />
-        <span className="text-sm text-gray-500">{label}</span>
+      <div className="flex items-center gap-3">
+        <Icon className="w-5 h-5 text-gov-navy" strokeWidth={2.5} />
+        <span className="text-sm font-bold text-gov-gray-dark uppercase">{label}</span>
       </div>
-      <span className={`text-sm font-medium ${accent ?? 'text-gray-700'}`}>{value}</span>
+      <span className={`text-sm font-bold font-mono ${accent ?? 'text-gray-900'}`}>{value}</span>
     </div>
   );
 }
 
 function StatBox({ label, value, alert }: { label: string; value: string; alert?: boolean }) {
   return (
-    <div className="p-3 rounded-lg bg-gray-50/80">
-      <p className="text-xs text-gray-400 font-medium">{label}</p>
-      <p className={`text-lg font-bold mt-1 ${alert ? 'text-red-600' : 'text-gray-900'}`}>{value}</p>
+    <div className={`p-4 border rounded-md bg-gray-50 ${alert ? 'border-gov-red bg-red-50' : 'border-gray-200'}`}>
+      <p className="text-xs font-semibold text-gov-gray-dark uppercase tracking-wide">{label}</p>
+      <p className={`text-xl font-bold mt-2 font-mono ${alert ? 'text-gov-red' : 'text-gov-navy-dark'}`}>{value}</p>
     </div>
   );
 }
 
 function InfoRow({ label, value, accent }: { label: string; value: string; accent?: string }) {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-gray-400">{label}</span>
-      <span className={`font-medium ${accent ?? 'text-gray-700'}`}>{value}</span>
+    <div className="flex items-center justify-between pb-2 border-b border-gray-100 last:border-0">
+      <span className="font-bold text-gov-gray-dark uppercase text-xs">{label}</span>
+      <span className={`font-bold text-right text-xs ${accent ?? 'text-gray-900'}`}>{value}</span>
     </div>
   );
 }

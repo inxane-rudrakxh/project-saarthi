@@ -54,3 +54,14 @@ export function riskToColor(score: number): string {
   if (score >= 0.35) return '#f59e0b';
   return '#10b981';
 }
+
+/* PAIMANA brand palette — single source of truth */
+export const BRAND = {
+  primary: '#1B2B5E',       // deep navy — cards, section headers, icons
+  primaryDark: '#0D1B3E',   // darkest navy — top gov banner
+  primaryLight: '#e8ecf7',  // light navy tint — hover backgrounds
+  accent: '#F5A623',        // saffron/gold — active buttons, active nav, active tabs
+  accentDark: '#d4891a',    // darker saffron — button hover
+  accentLight: '#fef3d8',   // pale saffron — subtle accent backgrounds
+  nav: '#1565C0',           // bright blue — navbar background
+};

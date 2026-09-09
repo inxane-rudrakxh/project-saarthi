@@ -16,72 +16,56 @@ export function ShapExplainer({
   const maxAbsContribution = Math.max(...sorted.map((f) => Math.abs(f.contribution)), 0.01);
 
   return (
-    <div className="space-y-2.5">
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <div className="w-1 h-4 rounded-full bg-[#0f4c5c]" />
-          <h4 className="text-sm font-semibold text-gray-900">SHAP Risk Attribution</h4>
-        </div>
-        <span className="text-[11px] text-gray-400 font-medium">Base value: {(baseValue * 100).toFixed(0)}%</span>
+    <div className="space-y-3">
+      <div className="flex items-center justify-end mb-2">
+        <span className="text-xs font-medium text-gray-500">Base threshold: {(baseValue * 100).toFixed(0)}%</span>
       </div>
 
       {sorted.length === 0 && (
-        <p className="text-sm text-gray-400 py-4 text-center">No significant risk factors detected.</p>
+        <p className="text-sm font-medium text-gray-500 py-4 text-center">No significant risk factors detected.</p>
       )}
 
       {sorted.map((factor, i) => {
         const isUp = factor.direction === 'risk_up';
-        const barWidth = (Math.abs(factor.contribution) / maxAbsContribution) * 100;
-        const animationDelay = `${i * 50}ms`;
+        // Calculate relative width (0 to 1)
+        const relativeWidth = Math.abs(factor.contribution) / maxAbsContribution;
+        // Max bar width is 40% of the entire container (leaving room for text)
+        const widthPct = relativeWidth * 40;
 
         return (
-          <div
-            key={factor.feature}
-            className="animate-slide-in"
-            style={{ animationDelay }}
-          >
+          <div key={factor.feature}>
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 {isUp ? (
-                  <ArrowUp className="w-3.5 h-3.5 text-orange-500" strokeWidth={2.5} />
+                  <ArrowUp className="w-4 h-4 text-gov-red" strokeWidth={2.5} />
                 ) : (
-                  <ArrowDown className="w-3.5 h-3.5 text-emerald-500" strokeWidth={2.5} />
+                  <ArrowDown className="w-4 h-4 text-gov-green" strokeWidth={2.5} />
                 )}
-                <span className="text-sm font-medium text-gray-700">{factor.feature}</span>
+                <span className="text-sm font-medium text-gray-800">{factor.feature}</span>
               </div>
-              <span className="text-xs text-gray-400 font-mono">{factor.value}</span>
+              <span className="text-xs font-medium text-gray-600 font-mono">{factor.value}</span>
             </div>
-            <div className="relative h-5 flex items-center">
+            <div className="relative h-6 flex items-center">
               {/* Center line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200" />
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300" />
               {/* Bar */}
               <div
-                className={`absolute h-3.5 rounded-sm transition-all duration-500 ${
-                  isUp ? 'bg-orange-400/80' : 'bg-emerald-400/80'
-                }`}
+                className={`absolute h-4 rounded-sm ${isUp ? 'bg-gov-red' : 'bg-gov-green'}`}
                 style={
                   isUp
-                    ? {
-                        left: '50%',
-                        width: `${barWidth / 2}%`,
-                        animationDelay,
-                      }
-                    : {
-                        right: '50%',
-                        width: `${barWidth / 2}%`,
-                        animationDelay,
-                      }
+                    ? { left: '50%', width: `${widthPct}%` }
+                    : { right: '50%', width: `${widthPct}%` }
                 }
               />
               {/* Contribution label */}
               <div
-                className={`absolute text-[10px] font-mono font-semibold ${
-                  isUp ? 'text-orange-600' : 'text-emerald-600'
+                className={`absolute text-xs font-mono font-semibold ${
+                  isUp ? 'text-gov-red' : 'text-gov-green'
                 }`}
                 style={
                   isUp
-                    ? { left: `calc(50% + ${barWidth / 2}% + 4px)` }
-                    : { right: `calc(50% + ${barWidth / 2}% + 4px)` }
+                    ? { left: `calc(50% + ${widthPct}% + 6px)` }
+                    : { right: `calc(50% + ${widthPct}% + 6px)` }
                 }
               >
                 {isUp ? '+' : ''}
@@ -92,13 +76,13 @@ export function ShapExplainer({
         );
       })}
 
-      <div className="pt-2 mt-2 border-t border-gray-100 flex items-center gap-4 text-[11px] text-gray-400">
+      <div className="pt-3 mt-4 border-t border-gray-200 flex items-center justify-between text-xs font-medium text-gray-500">
         <div className="flex items-center gap-1.5">
-          <ArrowUp className="w-3 h-3 text-orange-500" />
+          <ArrowUp className="w-4 h-4 text-gov-red" strokeWidth={2.5} />
           <span>Increases risk</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <ArrowDown className="w-3 h-3 text-emerald-500" />
+          <ArrowDown className="w-4 h-4 text-gov-green" strokeWidth={2.5} />
           <span>Decreases risk</span>
         </div>
       </div>

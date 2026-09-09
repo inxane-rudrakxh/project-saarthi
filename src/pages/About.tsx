@@ -12,6 +12,7 @@ import {
   AlertTriangle,
   Lightbulb,
   BarChart3,
+  Loader2,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import ReactECharts from 'echarts-for-react';
@@ -32,7 +33,7 @@ export default function About() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Activity className="w-8 h-8 text-[#0f4c5c] animate-pulse" />
+        <Loader2 className="w-8 h-8 text-gov-navy animate-spin" />
       </div>
     );
   }
@@ -40,7 +41,7 @@ export default function About() {
   return (
     <div className="p-8 max-w-4xl mx-auto animate-fade-in">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">About ProjectSaarthi AI</h1>
+        <h1 className="text-2xl font-bold text-[#0D1B3E]">About ProjectSaarthi AI</h1>
         <p className="text-sm text-gray-500 mt-1">
           AI-powered monitoring and early warning system for infrastructure projects
         </p>
@@ -49,11 +50,11 @@ export default function About() {
       {/* Overview */}
       <div className="card p-6 mb-6">
         <div className="flex items-start gap-4">
-          <div className="w-11 h-11 rounded-xl bg-[#0f4c5c] flex items-center justify-center shrink-0">
-            <Activity className="w-6 h-6 text-white" strokeWidth={2} />
+          <div className="w-11 h-11 rounded-xl bg-[#1B2B5E] flex items-center justify-center shrink-0">
+            <Activity className="w-6 h-6 text-[#F5A623]" strokeWidth={2} />
           </div>
           <div>
-            <h2 className="text-base font-semibold text-gray-900 mb-2">What is ProjectSaarthi?</h2>
+            <h2 className="text-base font-semibold text-[#0D1B3E] mb-2">What is ProjectSaarthi?</h2>
             <p className="text-sm text-gray-600 leading-relaxed">
               ProjectSaarthi is an AI-powered platform that monitors government infrastructure projects
               and provides early warning signals for cost and time overruns. It synthesizes project
@@ -74,11 +75,11 @@ export default function About() {
       <Section icon={Lightbulb} title="Key Features">
         <ul className="space-y-4 text-sm text-gray-600">
           <li className="flex items-start gap-3">
-            <div className="mt-1 w-6 h-6 rounded bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <div className="mt-1 w-6 h-6 rounded bg-[#e8ecf7] text-[#1565C0] flex items-center justify-center shrink-0">
               <TrendingUp className="w-4 h-4" />
             </div>
             <div>
-              <strong className="text-gray-900 block mb-0.5">Cost & Time Overrun Prediction</strong>
+              <strong className="text-[#0D1B3E] block mb-0.5">Cost & Time Overrun Prediction</strong>
               Anticipates potential cost escalations and milestone delays using data-driven forecasting.
             </div>
           </li>
@@ -87,7 +88,7 @@ export default function About() {
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
-              <strong className="text-gray-900 block mb-0.5">Explainable Risk Scoring Engine</strong>
+              <strong className="text-[#0D1B3E] block mb-0.5">Explainable Risk Scoring Engine</strong>
               Assesses individual project risk levels based on continuous project performance tracking, with clear SHAP-based explanations detailing contributing factors.
             </div>
           </li>
@@ -96,25 +97,25 @@ export default function About() {
               <AlertTriangle className="w-4 h-4" />
             </div>
             <div>
-              <strong className="text-gray-900 block mb-0.5">Early Warning Alerts System</strong>
+              <strong className="text-[#0D1B3E] block mb-0.5">Early Warning Alerts System</strong>
               Generates proactive alerts enabling early intervention for high-risk projects.
             </div>
           </li>
           <li className="flex items-start gap-3">
-            <div className="mt-1 w-6 h-6 rounded bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+            <div className="mt-1 w-6 h-6 rounded bg-[#fef3d8] text-[#F5A623] flex items-center justify-center shrink-0">
               <BarChart3 className="w-4 h-4" />
             </div>
             <div>
-              <strong className="text-gray-900 block mb-0.5">AI-Powered Monitoring Dashboard</strong>
+              <strong className="text-[#0D1B3E] block mb-0.5">AI-Powered Monitoring Dashboard</strong>
               Provides national and sector-level overviews of high-risk projects, overall risk distribution, and comprehensive benchmarking.
             </div>
           </li>
           <li className="flex items-start gap-3">
-            <div className="mt-1 w-6 h-6 rounded bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="mt-1 w-6 h-6 rounded bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
               <MessageSquare className="w-4 h-4" />
             </div>
             <div>
-              <strong className="text-gray-900 block mb-0.5">LLM Intelligence Assistant</strong>
+              <strong className="text-[#0D1B3E] block mb-0.5">LLM Intelligence Assistant</strong>
               Engage with a natural-language AI assistant powered by Azure OpenAI to query project data, compare performance across sectors, and extract summarized insights directly from structured data.
             </div>
           </li>
@@ -129,20 +130,20 @@ export default function About() {
         </p>
         <ul className="space-y-2 text-sm text-gray-600">
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c5c] mt-2 shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1B2B5E] mt-2 shrink-0" />
             <span><strong>Central Monitoring System (CMS):</strong> Monthly physical and financial progress reports, milestone tracking, expenditure data</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c5c] mt-2 shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1B2B5E] mt-2 shrink-0" />
             <span><strong>Compendium of Projects (CUF):</strong> Project metadata — sanctioned cost, revised cost, approval dates, implementing agency, sector classification</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0f4c5c] mt-2 shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1B2B5E] mt-2 shrink-0" />
             <span><strong>Ministry/Agency MIS:</strong> Schedule variance, milestone completion, field-level monitoring reports</span>
           </li>
         </ul>
-        <div className="mt-4 p-3 rounded-lg bg-amber-50 border border-amber-200">
-          <p className="text-xs text-amber-700">
+        <div className="mt-4 p-3 rounded-lg bg-[#fef3d8] border border-[#F5A623]/30">
+          <p className="text-xs text-[#b8740f]">
             Note: This is a demonstration with synthetic data that mirrors the structure and distributions
             of real government project monitoring data.
           </p>
@@ -184,7 +185,7 @@ export default function About() {
               'Cost revision ratio (log)',
               'Project age (months)',
             ].map((f) => (
-              <span key={f} className="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-50 text-gray-600 border border-gray-100">
+              <span key={f} className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#e8ecf7] text-[#1B2B5E] border border-[#c5cde6]">
                 {f}
               </span>
             ))}
@@ -274,7 +275,7 @@ export default function About() {
         </ul>
       </Section>
 
-      <div className="mt-8 pt-6 border-t border-gray-100 text-center">
+      <div className="mt-8 pt-6 border-t border-[#dde3ef] text-center">
         <p className="text-xs text-gray-400">
           ProjectSaarthi AI · Built as a demonstration of AI-enabled infrastructure governance
         </p>
@@ -295,10 +296,10 @@ function Section({
   return (
     <div className="card p-6 mb-6">
       <div className="flex items-center gap-2.5 mb-4">
-        <div className="w-8 h-8 rounded-lg bg-[#0f4c5c]/8 flex items-center justify-center">
-          <Icon className="w-4.5 h-4.5 text-[#0f4c5c]" strokeWidth={2} />
+        <div className="w-8 h-8 rounded-lg bg-[#1B2B5E]/10 flex items-center justify-center">
+          <Icon className="w-4 h-4 text-[#1B2B5E]" strokeWidth={2} />
         </div>
-        <h2 className="text-base font-semibold text-gray-900">{title}</h2>
+        <h2 className="text-base font-semibold text-[#0D1B3E]">{title}</h2>
       </div>
       {children}
     </div>
@@ -315,9 +316,9 @@ function ModelCard({
   icon: React.ComponentType<any>;
 }) {
   return (
-    <div className="p-4 rounded-lg bg-gray-50/80 border border-gray-100">
-      <Icon className="w-5 h-5 text-[#0f4c5c] mb-2" strokeWidth={2} />
-      <h4 className="text-sm font-semibold text-gray-900">{title}</h4>
+    <div className="p-4 rounded-lg bg-[#e8ecf7]/50 border border-[#c5cde6]">
+      <Icon className="w-5 h-5 text-[#1B2B5E] mb-2" strokeWidth={2} />
+      <h4 className="text-sm font-semibold text-[#0D1B3E]">{title}</h4>
       <p className="text-xs text-gray-500 mt-1 leading-relaxed">{description}</p>
     </div>
   );
@@ -341,8 +342,8 @@ function MetricComparison({ pair }: { pair: ModelMetric[] }) {
     tooltip: {
       trigger: 'axis' as const,
       backgroundColor: '#fff',
-      borderColor: '#e8eaed',
-      textStyle: { color: '#1a1a2e', fontSize: 12 },
+      borderColor: '#dde3ef',
+      textStyle: { color: '#0D1B3E', fontSize: 12 },
       formatter: (params: { seriesName: string; value: number; axisValue: string }[]) =>
         params.map((p) => `${p.seriesName}: ${(p.value * 100).toFixed(1)}%`).join('<br/>'),
     },
@@ -369,7 +370,7 @@ function MetricComparison({ pair }: { pair: ModelMetric[] }) {
     yAxis: {
       type: 'category' as const,
       data: metrics.map((m) => m.label),
-      axisLine: { lineStyle: { color: '#e8eaed' } },
+      axisLine: { lineStyle: { color: '#dde3ef' } },
       axisTick: { show: false },
       axisLabel: { color: '#6b7280', fontSize: 11 },
     },
@@ -378,7 +379,7 @@ function MetricComparison({ pair }: { pair: ModelMetric[] }) {
         name: xgb.modelName,
         type: 'bar',
         data: metrics.map((m) => xgb[m.key]),
-        itemStyle: { color: '#0f4c5c', borderRadius: [0, 3, 3, 0] },
+        itemStyle: { color: '#1B2B5E', borderRadius: [0, 3, 3, 0] },
         barWidth: 12,
       },
       {
@@ -392,7 +393,7 @@ function MetricComparison({ pair }: { pair: ModelMetric[] }) {
   };
 
   return (
-    <div className="p-4 rounded-lg bg-white border border-gray-100">
+    <div className="p-4 rounded-lg bg-white border border-[#dde3ef]">
       <h4 className="text-sm font-medium text-gray-700 mb-1">{xgb.task}</h4>
       <p className="text-xs text-gray-400 mb-3">Lead time: {xgb.leadTimeMonths} months</p>
       <ReactECharts option={chartOption} style={{ height: 180, width: '100%' }} />
@@ -412,20 +413,20 @@ function RegressionComparison({ pair }: { pair: ModelMetric[] }) {
   ];
 
   return (
-    <div className="p-4 rounded-lg bg-white border border-gray-100">
+    <div className="p-4 rounded-lg bg-white border border-[#dde3ef]">
       <h4 className="text-sm font-medium text-gray-700 mb-3">{xgb.task}</h4>
       <div className="grid grid-cols-3 gap-3">
         {stats.map((s) => (
-          <div key={s.label} className="p-3 rounded-lg bg-gray-50/80">
+          <div key={s.label} className="p-3 rounded-lg bg-[#e8ecf7]/50">
             <p className="text-xs text-gray-400 font-medium mb-2">{s.label}</p>
             <div className="flex items-center gap-3">
               <div>
                 <p className="text-[10px] text-gray-400">XGBoost</p>
-                <p className="text-sm font-bold text-[#0f4c5c]">
+                <p className="text-sm font-bold text-[#1B2B5E]">
                   {s.xgb !== null ? s.xgb.toFixed(3) : '—'}
                 </p>
               </div>
-              <div className="w-px h-8 bg-gray-200" />
+              <div className="w-px h-8 bg-[#dde3ef]" />
               <div>
                 <p className="text-[10px] text-gray-400">Baseline</p>
                 <p className="text-sm font-bold text-gray-400">

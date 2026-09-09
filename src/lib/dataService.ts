@@ -134,7 +134,7 @@ function rowToMetric(row: ModelMetricRow): ModelMetric {
 }
 
 export async function seedData(): Promise<void> {
-  const { projects: rawProjects, modelMetrics } = generateData(42, 42);
+  const { projects: rawProjects, modelMetrics } = generateData(300, 42);
 
   const scoredProjects = rawProjects.map((p) => {
     const scored = scoreProject(p);
