@@ -5,6 +5,7 @@ import shap
 import pandas as pd
 import warnings
 import os
+from generate_pdf import create_pdf_report
 
 warnings.filterwarnings('ignore')
 
@@ -24,7 +25,11 @@ EXTENDED_FIELDS = [
     'land_acquisition_ease',
     'monsoon_exposure',
     'contractor_concentration',
-    'state_project_load'
+    'state_project_load',
+    'sector_risk_factor',
+    'original_duration_days',
+    'days_elapsed',
+    'budget_utilization_ratio'
 ]
 ALL_FIELDS = CUF_FIELDS + EXTENDED_FIELDS
 
@@ -89,6 +94,11 @@ if __name__ == "__main__":
             project_data = json.loads(sys.argv[1])
             result = score_project(project_data)
             print(json.dumps(result, indent=2))
+            
+            # Generate PDF
+            pdf_path = os.path.join(os.path.dirname(__file__), 'output', 'project_risk_report.pdf')
+            create_pdf_report(result, pdf_path)
+            print(f"PDF report generated at: {pdf_path}")
         except Exception as e:
             print(f"Error: {e}")
     else:
@@ -109,4 +119,10 @@ if __name__ == "__main__":
             'state_project_load': 0.8
         }
         print("Running demo score:")
-        print(json.dumps(score_project(demo_data), indent=2))
+        result = score_project(demo_data)
+        print(json.dumps(result, indent=2))
+        
+        # Generate PDF
+        pdf_path = os.path.join(os.path.dirname(__file__), 'output', 'project_risk_report.pdf')
+        create_pdf_report(result, pdf_path)
+        print(f"PDF report generated at: {pdf_path}")

@@ -5,3 +5,4 @@ lightgbm
 shap
 supabase
 python-dotenv
+fpdf2
