@@ -12,9 +12,10 @@ Developed to evolve the traditional infrastructure tracking paradigm, this platf
 
 ## 🌟 Key Features
 
-*   **Cost & Time Overrun Prediction:** Anticipates potential cost escalations and milestone delays using data-driven forecasting.
-*   **Explainable Risk Scoring Engine:** Assesses individual project risk levels based on continuous project performance tracking, with clear SHAP-based explanations detailing contributing factors.
+*   **Cost & Time Overrun Prediction:** Anticipates potential cost escalations and milestone delays using data-driven forecasting powered by **LightGBM**.
+*   **Explainable Risk Scoring Engine:** Assesses individual project risk levels based on continuous project performance tracking, with clear **SHAP-based explanations** detailing contributing factors.
 *   **Early Warning Alerts System:** Generates proactive alerts enabling early intervention for high-risk projects.
+*   **Automated PDF Reporting:** Dynamically generates styled, downloadable PDF reports outlining risk scores, risk levels, and SHAP feature drivers for any project.
 *   **AI-Powered Monitoring Dashboard:** Provides national and sector-level overviews of high-risk projects, overall risk distribution, and comprehensive benchmarking.
 *   **LLM Intelligence Assistant:** Engage with a natural-language AI assistant to query project data, compare performance across sectors, and extract summarized insights directly from structured data.
 
@@ -58,7 +59,7 @@ graph TD
 *   **Backend & Database:** [Supabase](https://supabase.com/) (PostgreSQL cloud database)
 *   **AI & Language Models:** [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) (using `gpt-4.1-mini` for the natural language Assistant Engine)
 *   **Data Ingestion:** Python (Pandas, Requests)
-*   **ML & Analytics:** Algorithmic risk scoring, simulated predictive forecasting, and SHAP-based feature importance heuristics
+*   **ML & Analytics:** [LightGBM](https://lightgbm.readthedocs.io/), [SHAP](https://shap.readthedocs.io/) (for Explainable AI), and `fpdf2` for automated PDF report generation.
 
 ## 🚀 Getting Started
 
@@ -95,7 +96,20 @@ graph TD
     python scripts/ingest_real_paimana_data.py data/sample_real_paimana_data.csv
     ```
 
-5.  **Run the Development Server**
+5.  **Run the ML Pipeline (Optional but Recommended)**
+    To train the LightGBM models, generate SHAP explanations, and create automated PDF risk reports:
+    ```bash
+    cd ml
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python generate_data.py
+    python train_models.py
+    python score_project.py  # Tests the model and generates project_risk_report.pdf
+    cd ..
+    ```
+
+6.  **Run the Development Server**
     ```bash
     npm run dev
     ```
@@ -106,6 +120,7 @@ graph TD
 ```
 project-saarthi/
 ├── data/                  # Sample CSV data for ingestion
+├── ml/                    # Machine Learning pipeline, model training, SHAP, and PDF generation scripts
 ├── scripts/               # Python & JS scripts for data ingestion and risk calculations
 ├── src/
 │   ├── components/        # Reusable React UI components and Layouts
