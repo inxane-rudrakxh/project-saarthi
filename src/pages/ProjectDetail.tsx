@@ -11,6 +11,7 @@ import {
   AlertTriangle,
   CheckCircle2,
   XCircle,
+  LucideIcon,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import { RISK_COLORS, formatCurrency, formatDate, riskToColor } from '@/lib/ui';
@@ -275,7 +276,7 @@ function MetricRow({
   value,
   accent,
 }: {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: LucideIcon;
   label: string;
   value: string;
   accent?: string;

@@ -1,0 +1,3002 @@
+[
+  {
+    "projectId": "PRJ-400120-V17",
+    "riskScore": 45.67520289196495,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.05575121131866889,
+        "value": "0.45",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03909321335226591,
+        "value": "0.91",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.034135368962153606,
+        "value": "0.28",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V10",
+    "riskScore": 60.9110503050022,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.01637981680866415,
+        "value": "0.63",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.0121313194373359,
+        "value": "0.58",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010170420679299099,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-CHEN-PORT -V18",
+    "riskScore": 83.97878565761292,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.0771441020302723,
+        "value": "0.73",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.061556804929647685,
+        "value": "0.28",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03552318457717319,
+        "value": "149000.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V12",
+    "riskScore": 51.95432363451833,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": -0.04489338171348168,
+        "value": "0.15",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04303559443412478,
+        "value": "0.50",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.013376017077694483,
+        "value": "0.75",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701415-V6",
+    "riskScore": 74.16052364608413,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.10307548896540382,
+        "value": "0.78",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.01974031915696094,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.017758572521879734,
+        "value": "0.43",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619032-V16",
+    "riskScore": 44.71298406649573,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.0806633585162415,
+        "value": "0.36",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03648797205357818,
+        "value": "0.93",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.01845129597040119,
+        "value": "0.36",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V20",
+    "riskScore": 53.71910672696355,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.024122704789339883,
+        "value": "0.82",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.023288929298054536,
+        "value": "0.65",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.016055077551653488,
+        "value": "0.75",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V0",
+    "riskScore": 54.641445447092515,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.07154658966347138,
+        "value": "0.42",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.03314511563435093,
+        "value": "0.42",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.0252863281246488,
+        "value": "0.74",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V16",
+    "riskScore": 71.98318425598612,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.03466567460011088,
+        "value": "0.55",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.033727371887018305,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.03014668151251508,
+        "value": "0.35",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V5",
+    "riskScore": 60.64622601673057,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.02759517026068206,
+        "value": "0.59",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.023367042746311902,
+        "value": "0.79",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.01704058157123999,
+        "value": "0.79",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-602182-V6",
+    "riskScore": 54.45946814858211,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04715683716979676,
+        "value": "0.45",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.026127288443345723,
+        "value": "0.72",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.022714052960746876,
+        "value": "0.81",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V18",
+    "riskScore": 62.0679471683982,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.035006968345158165,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.016174982822175193,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.014454892185798924,
+        "value": "0.47",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701405-V12",
+    "riskScore": 64.5516499409334,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.047784975868241805,
+        "value": "0.65",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.023011294093819655,
+        "value": "0.63",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.012911562908601583,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V9",
+    "riskScore": 58.5536255677701,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04439598163204691,
+        "value": "0.46",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02951789625790885,
+        "value": "0.68",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.025018751973293264,
+        "value": "0.71",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V26",
+    "riskScore": 53.435212668924834,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.0992132716996253,
+        "value": "0.23",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.028824657493862014,
+        "value": "0.50",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.024142360183915006,
+        "value": "0.81",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619341-V18",
+    "riskScore": 46.06887603075667,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.07514799232115031,
+        "value": "0.40",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03953875089404301,
+        "value": "0.92",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.02406643475874931,
+        "value": "0.26",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V4",
+    "riskScore": 63.184216751789734,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.04568228050824774,
+        "value": "0.85",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.027309000215094466,
+        "value": "0.43",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.02543686406975034,
+        "value": "0.60",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V1",
+    "riskScore": 50.1797981378159,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.043840446679538514,
+        "value": "0.48",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03681119946152374,
+        "value": "0.93",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.035705074189806965,
+        "value": "0.20",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V18",
+    "riskScore": 65.39851524483602,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.024464248296878863,
+        "value": "0.50",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02366707948744475,
+        "value": "0.70",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.012982625234356997,
+        "value": "0.55",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V23",
+    "riskScore": 60.85958533745834,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.025311386335982983,
+        "value": "0.62",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.022265604297454573,
+        "value": "0.31",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009622866723829678,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701405-V9",
+    "riskScore": 70.68616044335391,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.1182016406494357,
+        "value": "0.79",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03198069428641588,
+        "value": "0.84",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.025327155102871812,
+        "value": "0.19",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V19",
+    "riskScore": 48.16067547403688,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.059636597793363125,
+        "value": "0.44",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.03430973845506636,
+        "value": "0.22",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.030567001463105863,
+        "value": "0.83",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619341-V23",
+    "riskScore": 66.31674961208022,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03892783141131395,
+        "value": "0.83",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.03186940650690724,
+        "value": "0.83",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.02870599506629777,
+        "value": "0.59",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V28",
+    "riskScore": 57.95986536521597,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.0291659030325643,
+        "value": "0.71",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.021990022722119883,
+        "value": "0.78",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.01075158257443774,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-602182-V22",
+    "riskScore": 51.857329740886996,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.06735008390910215,
+        "value": "0.42",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03854609488314866,
+        "value": "0.91",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.028319598206839,
+        "value": "0.51",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V6",
+    "riskScore": 53.07620057407371,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.08108907324288836,
+        "value": "0.41",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.027903789715266445,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.02527723400308375,
+        "value": "0.51",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V24",
+    "riskScore": 88.58767114270424,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11103358448508614,
+        "value": "0.81",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.07164304593807526,
+        "value": "0.33",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.04329602508860319,
+        "value": "0.12",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V14",
+    "riskScore": 67.70781219267512,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.07159588365438686,
+        "value": "0.69",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.019222910379122483,
+        "value": "0.78",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.016526714515542863,
+        "value": "0.61",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V2",
+    "riskScore": 58.555389215050525,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.06562220291034244,
+        "value": "0.42",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.031642743363238295,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.023117634516092733,
+        "value": "0.51",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400424-V22",
+    "riskScore": 54.94634804787258,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.07564227655599769,
+        "value": "0.36",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.015983170417436857,
+        "value": "0.59",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.014332870520664778,
+        "value": "0.62",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701415-V18",
+    "riskScore": 74.00309974126645,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11418715323083017,
+        "value": "0.77",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.04755989007633477,
+        "value": "0.19",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.026185788134589372,
+        "value": "0.79",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400120-V5",
+    "riskScore": 64.69733102233474,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.03826397885109479,
+        "value": "0.47",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02717738470022591,
+        "value": "0.74",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.027016122580875962,
+        "value": "0.51",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V28",
+    "riskScore": 67.14839967634076,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.055979245069541536,
+        "value": "0.66",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03833586086671333,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.021583189582297005,
+        "value": "0.64",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V24",
+    "riskScore": 61.89765577571843,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.04995862538208208,
+        "value": "0.64",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03778564911781268,
+        "value": "0.85",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.023135526326048185,
+        "value": "0.43",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V13",
+    "riskScore": 93.41354991321734,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.17045447673026823,
+        "value": "0.92",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.07095424920246217,
+        "value": "0.23",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03836440754287199,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V8",
+    "riskScore": 89.41860211987542,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.12314586420561263,
+        "value": "0.82",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.056303260532388745,
+        "value": "0.47",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.038986531931074694,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V17",
+    "riskScore": 59.51703062586978,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.039486717566169435,
+        "value": "0.90",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.024044709760130394,
+        "value": "0.44",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010211629911482615,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V21",
+    "riskScore": 62.87530556085898,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.027814799068878897,
+        "value": "0.84",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.02732183046736093,
+        "value": "0.47",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.01798445525181026,
+        "value": "0.63",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V6",
+    "riskScore": 93.342115609032,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.16260228593300216,
+        "value": "0.88",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.05177950978603371,
+        "value": "0.43",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.04793493671703775,
+        "value": "0.20",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V3",
+    "riskScore": 53.35056864228036,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04236369228286974,
+        "value": "0.48",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.02854296094942713,
+        "value": "0.84",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.02299568355179831,
+        "value": "0.35",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V14",
+    "riskScore": 51.34436252867114,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.061905135019319754,
+        "value": "0.43",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.03121080828405455,
+        "value": "0.85",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.015210629717108522,
+        "value": "0.60",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400424-V24",
+    "riskScore": 61.98094851429335,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.043527681305839755,
+        "value": "0.26",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": -0.02216614984773004,
+        "value": "0.52",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010410477626913972,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V0",
+    "riskScore": 53.17318031426041,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.051072581243053035,
+        "value": "0.47",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.04275882132689123,
+        "value": "0.10",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.0230592693955211,
+        "value": "0.65",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-CHEN-PORT -V6",
+    "riskScore": 84.31980114879002,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.0864356766803444,
+        "value": "0.72",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.06378274361886885,
+        "value": "0.39",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.037472941979638894,
+        "value": "149000.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V8",
+    "riskScore": 45.52097056029682,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.048094944042230935,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.04158606800756915,
+        "value": "0.95",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.033196851103920164,
+        "value": "0.29",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V5",
+    "riskScore": 69.30693036862279,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.033918530238176994,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.03169855812180884,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.025870980643003864,
+        "value": "0.56",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V26",
+    "riskScore": 71.54127684852814,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.08691623864972342,
+        "value": "0.73",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.022944170933171498,
+        "value": "0.68",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.018447619726727985,
+        "value": "0.63",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619341-V19",
+    "riskScore": 62.503600227504755,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02603448336110255,
+        "value": "0.70",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.019804440772395578,
+        "value": "0.69",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009900126707096077,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619032-V26",
+    "riskScore": 63.14135305727305,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.06034220748705224,
+        "value": "0.42",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.03675819192508648,
+        "value": "0.41",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.025419101912224042,
+        "value": "0.75",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V26",
+    "riskScore": 60.063532110109165,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.032644310847522284,
+        "value": "0.79",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010455899273567382,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "sector_risk_factor",
+        "contribution": 0.0064003677566268355,
+        "value": "0.61",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V9",
+    "riskScore": 59.80170331073137,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04137724281643398,
+        "value": "0.50",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.032773529051328736,
+        "value": "0.41",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.025606457980368237,
+        "value": "0.82",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V5",
+    "riskScore": 53.70762248762878,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.06729659398709509,
+        "value": "0.42",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.03747918327813816,
+        "value": "0.20",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.035700483785782326,
+        "value": "0.36",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V6",
+    "riskScore": 64.30852295478849,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.02055616640020024,
+        "value": "0.60",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.017355811181760147,
+        "value": "0.75",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.015973404560004924,
+        "value": "0.49",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-706775-V29",
+    "riskScore": 72.64764052885096,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.08184020055122142,
+        "value": "0.71",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02887921221459548,
+        "value": "0.85",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.02229219292002425,
+        "value": "0.44",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V16",
+    "riskScore": 52.15411233302882,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.07687336722394916,
+        "value": "0.38",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.03354086622996071,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.026034817441257598,
+        "value": "0.67",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619032-V8",
+    "riskScore": 52.290750164433895,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04033078694404759,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.030776960292930488,
+        "value": "0.73",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.02743679532199412,
+        "value": "0.86",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V8",
+    "riskScore": 45.728840390988935,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.10474985933460712,
+        "value": "0.29",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.026479566882334674,
+        "value": "0.83",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.019730228543756095,
+        "value": "0.60",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V21",
+    "riskScore": 86.82550376913028,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11290307383299951,
+        "value": "0.75",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.057634731660646366,
+        "value": "0.49",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03492393405614568,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-706775-V17",
+    "riskScore": 51.57576879657794,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.07790324802754088,
+        "value": "0.38",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.028804069381181494,
+        "value": "0.79",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.025652055205556468,
+        "value": "0.62",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V19",
+    "riskScore": 53.08751797741008,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04695500792982606,
+        "value": "0.46",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.0339887866234275,
+        "value": "0.87",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.02607521330017425,
+        "value": "0.80",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619032-V13",
+    "riskScore": 61.39404254077295,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.029709609052786603,
+        "value": "0.60",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.014436379540058093,
+        "value": "0.58",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009808929630750217,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V4",
+    "riskScore": 52.424070724825086,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.08716218940373874,
+        "value": "0.34",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.02135572942221876,
+        "value": "0.55",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.01697974801557892,
+        "value": "0.60",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V2",
+    "riskScore": 55.392898307481566,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": -0.027367977208167315,
+        "value": "0.25",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.019177551404663085,
+        "value": "0.64",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.01579158686013426,
+        "value": "0.75",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V10",
+    "riskScore": 55.468787248280904,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04926159588908895,
+        "value": "0.45",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.036902981376952,
+        "value": "0.41",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.024859574857333994,
+        "value": "0.81",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V21",
+    "riskScore": 59.68848443784442,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.035814968405296806,
+        "value": "0.48",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.03019807439932981,
+        "value": "0.76",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.020926820424984855,
+        "value": "0.65",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V9",
+    "riskScore": 63.43945534316725,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.03343275835703378,
+        "value": "0.59",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.013461691711715353,
+        "value": "0.40",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.01082655922983478,
+        "value": "0.72",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701405-V23",
+    "riskScore": 65.35702951856342,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.041952464647509916,
+        "value": "0.63",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.031846814520540986,
+        "value": "0.43",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.028521540441091273,
+        "value": "0.19",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701415-V26",
+    "riskScore": 84.40592447512583,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.18337134399435326,
+        "value": "1.00",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.054552501911937244,
+        "value": "0.15",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.01717856749658813,
+        "value": "0.79",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619341-V21",
+    "riskScore": 55.94650498415821,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04363391337491987,
+        "value": "0.47",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.024747075495777645,
+        "value": "0.65",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.021331530205172568,
+        "value": "0.80",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-602182-V13",
+    "riskScore": 64.11647796729261,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": 0.03236685528461171,
+        "value": "0.74",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.01689940145116276,
+        "value": "0.66",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009028469459312067,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V18",
+    "riskScore": 51.81105633705697,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.043044290390211,
+        "value": "0.49",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.025679187588894148,
+        "value": "0.84",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.01918861796708374,
+        "value": "0.76",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V26",
+    "riskScore": 51.60910113471628,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.05063526488137324,
+        "value": "0.45",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.028222179780700688,
+        "value": "0.34",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.016244951499626795,
+        "value": "0.76",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V1",
+    "riskScore": 57.49171586730506,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.039472313497867374,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.03576675813835487,
+        "value": "0.59",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.023881605780924922,
+        "value": "0.89",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701405-V0",
+    "riskScore": 68.11304809802114,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.06999356870314592,
+        "value": "0.70",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.04531873560525818,
+        "value": "0.86",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02998898789996376,
+        "value": "0.81",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619032-V24",
+    "riskScore": 60.674215225388416,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04048115533693006,
+        "value": "0.48",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.02452169491781279,
+        "value": "0.68",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.016780506196148647,
+        "value": "0.65",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V26",
+    "riskScore": 81.47161708848867,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.1106377501360244,
+        "value": "0.81",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.06684726338282236,
+        "value": "0.29",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.0367507813610021,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619341-V13",
+    "riskScore": 68.222798382484,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.05498780279696606,
+        "value": "0.68",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010255839222680717,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.00988675687679519,
+        "value": "0.56",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V8",
+    "riskScore": 58.84206589618083,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.0410934079904341,
+        "value": "0.93",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.0222089897311239,
+        "value": "0.54",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.02036221726130603,
+        "value": "0.36",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V19",
+    "riskScore": 55.49485549715597,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.04081610407616269,
+        "value": "0.94",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.027139317797357877,
+        "value": "0.22",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.02252342057976973,
+        "value": "0.57",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V22",
+    "riskScore": 76.01443131853601,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11370576689477875,
+        "value": "0.77",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03340372452727156,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.027604189856381033,
+        "value": "0.20",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V13",
+    "riskScore": 61.47412571721248,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04244817058866839,
+        "value": "0.45",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.023224596207565108,
+        "value": "0.63",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.014615005331726522,
+        "value": "0.47",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V21",
+    "riskScore": 58.33783468642352,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.08590727782707173,
+        "value": "0.39",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.027739276407967958,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.023642865150482542,
+        "value": "0.71",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400120-V0",
+    "riskScore": 50.75555951974474,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.0661706852494243,
+        "value": "0.43",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.025139529313035074,
+        "value": "0.82",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.015624931475696796,
+        "value": "0.60",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701415-V13",
+    "riskScore": 80.79812283779366,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.1670732931002976,
+        "value": "0.92",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.04081678063620446,
+        "value": "0.28",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.010451379536511178,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V11",
+    "riskScore": 58.07835065206134,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": -0.025486489143523156,
+        "value": "0.21",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.022294576892663672,
+        "value": "0.66",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.01495228649683123,
+        "value": "0.75",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V11",
+    "riskScore": 59.32550989242937,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.05610543066039967,
+        "value": "0.67",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.029405135028814835,
+        "value": "0.72",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.018285574386036712,
+        "value": "0.33",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V25",
+    "riskScore": 90.69538878464293,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11998114539864278,
+        "value": "0.77",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.07282488857828126,
+        "value": "0.32",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.044491535127671136,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V12",
+    "riskScore": 57.876647377672796,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.02082532786719563,
+        "value": "0.53",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.014043497886282732,
+        "value": "0.73",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.012800129426841196,
+        "value": "0.39",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400424-V27",
+    "riskScore": 56.324265768169646,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": -0.02277356615967317,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.022484136358772614,
+        "value": "0.82",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.013462229429445801,
+        "value": "0.43",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V27",
+    "riskScore": 55.20347614224029,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.06450472728558515,
+        "value": "0.44",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.04371236374642508,
+        "value": "0.55",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.03226774741513373,
+        "value": "0.79",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V0",
+    "riskScore": 61.19500004102093,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.05540908266438821,
+        "value": "0.64",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.03771399520206971,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.01640426944246222,
+        "value": "0.77",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V0",
+    "riskScore": 83.63478904763151,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.06694633120696498,
+        "value": "0.70",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.0617120480592025,
+        "value": "0.33",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.0369391216049825,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V5",
+    "riskScore": 94.03981204171717,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.14139543243455643,
+        "value": "0.84",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.06725768024072303,
+        "value": "0.32",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.04538455610304388,
+        "value": "199300.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-DEL-METRO -V7",
+    "riskScore": 68.7293716868722,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.08596699520999589,
+        "value": "0.73",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.01653608794408142,
+        "value": "0.60",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.00986841929917428,
+        "value": "0.41",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400424-V2",
+    "riskScore": 65.05901580652763,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.03611681846131078,
+        "value": "0.40",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.035227783439880256,
+        "value": "0.60",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.024217095922523694,
+        "value": "0.89",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V23",
+    "riskScore": 68.31968266723288,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.05664832243345492,
+        "value": "0.43",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": -0.055814044348334,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03209987358339312,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-BKG-ATOMIC-V21",
+    "riskScore": 58.35872939663951,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.042571276258619443,
+        "value": "0.51",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.027610118791266392,
+        "value": "0.83",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.024696964347801994,
+        "value": "0.52",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-706775-V4",
+    "riskScore": 49.95751205319884,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.08188110066241636,
+        "value": "0.37",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.029339034297360678,
+        "value": "0.82",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.028019600359234367,
+        "value": "0.84",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-298178-V10",
+    "riskScore": 63.51793148748845,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.0492860949847827,
+        "value": "0.53",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.02141918486500402,
+        "value": "0.28",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.011273441868138917,
+        "value": "0.57",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V14",
+    "riskScore": 70.06581373948073,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.0508290969480305,
+        "value": "0.69",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.030959278233871,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.019630792143747213,
+        "value": "0.65",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-MUM-METRO3-V26",
+    "riskScore": 79.00748247892798,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11779339020907752,
+        "value": "0.78",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.037488174584683696,
+        "value": "197800.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.01835683661270234,
+        "value": "0.56",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-706775-V9",
+    "riskScore": 52.32469890242516,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.046647588287802716,
+        "value": "0.47",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.044519275481602706,
+        "value": "0.95",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.016646645167561036,
+        "value": "0.60",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-602182-V20",
+    "riskScore": 55.60676037541089,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.03594439622279191,
+        "value": "0.48",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.02739937691436687,
+        "value": "0.83",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.013169123927043433,
+        "value": "0.59",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-CHEN-PORT -V21",
+    "riskScore": 91.13793476940648,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11763130376021347,
+        "value": "0.81",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.05792345399373191,
+        "value": "0.47",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.03789828453856705,
+        "value": "149000.0%",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V29",
+    "riskScore": 56.82654662856221,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.019535929968285903,
+        "value": "0.78",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.018710386881537918,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.012209253647252387,
+        "value": "0.59",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V17",
+    "riskScore": 63.757520509615574,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.016137499189886703,
+        "value": "0.61",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.014439892001858716,
+        "value": "0.64",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.013984393273520086,
+        "value": "0.58",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V2",
+    "riskScore": 56.37565774252934,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.05466603799819658,
+        "value": "0.43",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.018555154761740408,
+        "value": "0.62",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.01637933012856026,
+        "value": "0.56",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-BKG-ATOMIC-V11",
+    "riskScore": 69.67616464735619,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.03481947006449919,
+        "value": "0.63",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.028796158735269833,
+        "value": "212900.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.02432577625430404,
+        "value": "0.56",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V28",
+    "riskScore": 66.73514305386861,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": 0.03154686189368243,
+        "value": "0.83",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": 0.03154000085946967,
+        "value": "0.61",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.010202603664906223,
+        "value": "0.72",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-701405-V2",
+    "riskScore": 69.27073971230818,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.11666529014148617,
+        "value": "0.76",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.04564482633668382,
+        "value": "0.90",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.008466526327134499,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400424-V8",
+    "riskScore": 58.80289238529854,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.012727617703104996,
+        "value": "0.61",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.012010454811357837,
+        "value": "0.43",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009673953843750192,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400188-V8",
+    "riskScore": 55.90607227366284,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "state_project_load",
+        "contribution": -0.023647277646762672,
+        "value": "0.34",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.021265946322068435,
+        "value": "0.80",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": -0.009059041602599493,
+        "value": "219100.0%",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-400185-V25",
+    "riskScore": 56.782865996285615,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.05675834560399359,
+        "value": "0.43",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": 0.023489851892179003,
+        "value": "0.53",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.018202674291951215,
+        "value": "0.63",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-BKG-ATOMIC-V26",
+    "riskScore": 61.853185310422965,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.04015464954615009,
+        "value": "0.49",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.021318705878268854,
+        "value": "212900.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": -0.020368488396117445,
+        "value": "0.68",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-709857-V24",
+    "riskScore": 60.2681994577614,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": 0.07056794521430279,
+        "value": "0.69",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.040999460015358376,
+        "value": "0.89",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.027843821479157586,
+        "value": "0.25",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-619025-V25",
+    "riskScore": 52.37635716504029,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.11166092150606843,
+        "value": "0.28",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.023673471921561513,
+        "value": "0.76",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.012248831931976234,
+        "value": "0.75",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-702632-V16",
+    "riskScore": 47.6214325646618,
+    "riskLevel": "MEDIUM",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.05621825671489853,
+        "value": "0.44",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": -0.03748192918604618,
+        "value": "0.17",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "agency_track_record",
+        "contribution": -0.016699485377134903,
+        "value": "0.79",
+        "direction": "risk_down"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-USBRL-RAIL-V28",
+    "riskScore": 87.82549847327634,
+    "riskLevel": "CRITICAL",
+    "shapFactors": [
+      {
+        "feature": "funding_stability",
+        "contribution": 0.06489299922631037,
+        "value": "0.23",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "complexity_index",
+        "contribution": 0.057625463444224194,
+        "value": "0.66",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "land_acquisition_ease",
+        "contribution": 0.052088864855702015,
+        "value": "0.15",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-BKG-ATOMIC-V3",
+    "riskScore": 67.24480211529131,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "original_duration_days",
+        "contribution": 0.026827773806715537,
+        "value": "212900.0%",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "sector_risk_factor",
+        "contribution": 0.01035242632036834,
+        "value": "0.80",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.006936680733400203,
+        "value": "0.53",
+        "direction": "risk_up"
+      }
+    ]
+  },
+  {
+    "projectId": "PRJ-618412-V22",
+    "riskScore": 58.328906389322846,
+    "riskLevel": "HIGH",
+    "shapFactors": [
+      {
+        "feature": "complexity_index",
+        "contribution": -0.034700730741247535,
+        "value": "0.50",
+        "direction": "risk_down"
+      },
+      {
+        "feature": "state_project_load",
+        "contribution": 0.031181207154229104,
+        "value": "0.75",
+        "direction": "risk_up"
+      },
+      {
+        "feature": "funding_stability",
+        "contribution": -0.030604150882342425,
+        "value": "0.86",
+        "direction": "risk_down"
+      }
+    ]
+  }
+]

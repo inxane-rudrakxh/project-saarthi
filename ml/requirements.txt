@@ -1,0 +1,7 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+shap
+supabase
+python-dotenv

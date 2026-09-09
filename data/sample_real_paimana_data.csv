@@ -1,6 +1,21 @@
 project_id,project_name,sector,ministry,implementing_agency,state,approved_cost_cr,revised_cost_cr,original_start_date,original_completion_date,revised_completion_date,status
-PRJ-DEL-METRO,Delhi Metro Phase IV Expansion,Railways,Ministry of Housing and Urban Affairs,DMRC,Delhi,24948.00,29500.00,2019-12-01,2025-12-31,2026-12-31,Ongoing
-PRJ-MUM-METRO3,Mumbai Metro Line 3 (Colaba-Bandra-SEEPZ),Railways,Ministry of Housing and Urban Affairs,MMRCL,Maharashtra,23136.00,37276.00,2016-08-01,2021-12-31,2026-06-30,Ongoing
-PRJ-CHEN-PORT,Chennai Port to Maduravoyal Elevated Expressway,Road Transport and Highways,Ministry of Road Transport and Highways,NHAI,Tamil Nadu,1815.00,3570.00,2010-09-01,2014-09-30,2027-03-31,Ongoing
-PRJ-USBRL-RAIL,Udhampur-Srinagar-Baramulla Rail Link (USBRL),Railways,Ministry of Railways,Northern Railway,Jammu and Kashmir,6000.00,41119.00,2002-03-01,2007-08-15,2026-03-31,Ongoing
-PRJ-BKG-ATOMIC,Kudankulam Atomic Power Project Units 3 & 4,Atomic Energy,Department of Atomic Energy,NPCIL,Tamil Nadu,39849.00,49621.00,2017-06-01,2023-03-31,2026-12-31,Ongoing
+PRJ-DEL-METRO , Delhi Metro Phase IV Expansion                 , Railways                   , Ministry of Housing and Urban Affairs  , DMRC               , Delhi            ,24948.0,29500.0, 2019-12-01         , 2025-12-31              , 2026-12-31             , Ongoing
+PRJ-MUM-METRO3, Mumbai Metro Line 3 (Colaba-Bandra-SEEPZ)      , Railways                   , Ministry of Housing and Urban Affairs  , MMRCL              , Maharashtra      ,23136.0,37276.0, 2016-08-01         , 2021-12-31              , 2026-06-30             , Ongoing
+PRJ-CHEN-PORT , Chennai Port to Maduravoyal Elevated Expressway, Road Transport and Highways, Ministry of Road Transport and Highways, NHAI               , Tamil Nadu       ,1815.0,3570.0, 2010-09-01         , 2014-09-30              , 2027-03-31             , Ongoing
+PRJ-USBRL-RAIL, Udhampur-Srinagar-Baramulla Rail Link (USBRL)  , Railways                   , Ministry of Railways                   , Northern Railway   , Jammu and Kashmir,6000.0,41119.0, 2002-03-01         , 2007-08-15              , 2026-03-31             , Ongoing
+PRJ-BKG-ATOMIC, Kudankulam Atomic Power Project Units 3 & 4    , Atomic Energy              , Department of Atomic Energy            , NPCIL              , Tamil Nadu       ,39849.0,49621.0, 2017-06-01         , 2023-03-31              , 2026-12-31             , Ongoing
+PRJ-619032,JAYANT EXPN. [20 TO 38 MTPA],Infrastructure,Various Ministries,Various Agencies,Multi-State,25560.0,333.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-701405,J. CHOKKA RAO DEVADULA LIFT IRRIGATION SCHEME,Infrastructure,Various Ministries,Various Agencies,Multi-State,8201.0,14730.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-400120,KG-DWN-98/2 CLUSTER - II DEVELOPMENT PROJECT - NELP BLOCK,Infrastructure,Various Ministries,Various Agencies,Multi-State,34012.0,34012.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-400424,GEVRA OC [70 MTY],Infrastructure,Various Ministries,Various Agencies,Multi-State,11816.0,7825.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-702632,DMRTS PHASE - IV [3 PRIORITY CORRIDORS],Infrastructure,Various Ministries,Various Agencies,Multi-State,24949.0,21421.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-619025,RAJASTHAN PART I POWER TRANSMISSION LIMITED,Infrastructure,Various Ministries,Various Agencies,Multi-State,25000.0,25000.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-400188,REDEVELOPMENT OF SEVEN GENERAL POOL RESIDENTIAL,Infrastructure,Various Ministries,Various Agencies,Multi-State,32850.0,32841.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-619341,"TELANGANA SUPER THERMAL POWER PROJECT , STAGE-II [3 X 800 MW]",Infrastructure,Various Ministries,Various Agencies,Multi-State,29345.0,29345.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-618412,CONSTRUCTION OF I CONNECTING ROAD FROM Z-MORH TUNNEL TO ZOJILA TUNNEL,Infrastructure,Various Ministries,Various Agencies,Multi-State,6809.0,6809.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-298178,"MEJA THERMAL POWER PROJECT, STAGE-II , (3X800 MW)",Infrastructure,Various Ministries,Various Agencies,Multi-State,38358.0,1003.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-400185,GOPALJI KANIHA OCP [10 TO 30 M,Infrastructure,Various Ministries,Various Agencies,Multi-State,8416.0,6108.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-701415,POLAVARAM IRRIGATION PROJECT,Infrastructure,Various Ministries,Various Agencies,Multi-State,10151.0,55549.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-709857,"PLANNING, ENGINEERING, SUPPLY, INSTALLATION, TESTING,",Infrastructure,Various Ministries,Various Agencies,Multi-State,24545.0,9166.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-602182,DIBANG MULTIPURPOSE PROJECT,Infrastructure,Various Ministries,Various Agencies,Multi-State,31876.0,4921.0,2020-01-01,2025-12-31,2027-12-31,Ongoing
+PRJ-706775,BHARATNET,Infrastructure,Various Ministries,Various Agencies,Multi-State,61109.0,12709.0,2020-01-01,2025-12-31,2027-12-31,Ongoing

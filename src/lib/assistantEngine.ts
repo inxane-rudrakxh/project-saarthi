@@ -1,11 +1,3 @@
-import type { Project, Alert } from './types';
-import { analyzeTrend } from './riskEngine';
-
-export interface Citation {
-  projectId: string;
-  projectName: string;
-  sector: string;
-}
 
 import type { Project, Alert } from './types';
 import { analyzeTrend } from './riskEngine';

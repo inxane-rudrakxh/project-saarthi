@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
+    "dotenv": "^17.4.2",
     "echarts": "^6.1.0",
     "echarts-for-react": "^3.0.6",
     "lucide-react": "^0.446.0",

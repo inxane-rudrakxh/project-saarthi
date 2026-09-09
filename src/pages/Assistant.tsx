@@ -6,15 +6,9 @@ import type { Citation } from '@/lib/assistantEngine';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-interface Message {
-  role: 'user' | 'assistant';
-  text: string;
-  citations: Citation[];
-}
 
 export default function Assistant() {
-  const { projects, alerts, loading } = useData();
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { projects, alerts, loading, chatMessages, setChatMessages } = useData();
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -23,13 +17,13 @@ export default function Assistant() {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, isTyping]);
+  }, [chatMessages, isTyping]);
 
   const handleSend = async (question?: string) => {
     const q = (question ?? input).trim();
     if (!q || loading || projects.length === 0 || isTyping) return;
 
-    setMessages((prev) => [
+    setChatMessages((prev) => [
       ...prev,
       { role: 'user', text: q, citations: [] },
     ]);
@@ -38,7 +32,7 @@ export default function Assistant() {
 
     const answer = await answerQuery(q, projects, alerts);
 
-    setMessages((prev) => [
+    setChatMessages((prev) => [
       ...prev,
       { role: 'assistant', text: answer.text, citations: answer.citations },
     ]);
@@ -65,7 +59,7 @@ export default function Assistant() {
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-8 py-6">
         <div className="max-w-3xl mx-auto space-y-4">
-          {messages.length === 0 && (
+          {chatMessages.length === 0 && (
             <div className="text-center py-12">
               <div className="w-14 h-14 rounded-2xl bg-[#0f4c5c]/5 flex items-center justify-center mx-auto mb-4">
                 <MessageSquare className="w-7 h-7 text-[#0f4c5c]" strokeWidth={1.8} />
@@ -88,7 +82,7 @@ export default function Assistant() {
             </div>
           )}
 
-          {messages.map((msg, i) => (
+          {chatMessages.map((msg, i) => (
             <div
               key={i}
               className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}

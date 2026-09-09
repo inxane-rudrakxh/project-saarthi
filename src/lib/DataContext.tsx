@@ -3,10 +3,18 @@ import { ensureSeeded, loadAlerts, loadModelMetrics } from './dataService';
 import { generateAlerts } from './riskEngine';
 import type { Project, Alert, ModelMetric } from './types';
 
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  text: string;
+  citations: any[];
+}
+
 interface DataContextValue {
   projects: Project[];
   alerts: Alert[];
   metrics: ModelMetric[];
+  chatMessages: ChatMessage[];
+  setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>;
   loading: boolean;
   error: string | null;
   refresh: () => Promise<void>;
@@ -19,6 +27,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [metrics, setMetrics] = useState<ModelMetric[]>([]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -52,7 +61,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   return (
     <DataContext.Provider value={{
-      projects, alerts, metrics, loading, error,
+      projects, alerts, metrics, chatMessages, setChatMessages, loading, error,
       refresh: loadData,
       reseed: async () => {
         setLoading(true);
