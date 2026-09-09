@@ -8,6 +8,10 @@ import {
   GitBranch,
   FileText,
   Clock,
+  MessageSquare,
+  AlertTriangle,
+  Lightbulb,
+  BarChart3,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import ReactECharts from 'echarts-for-react';
@@ -65,6 +69,57 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* Key Features */}
+      <Section icon={Lightbulb} title="Key Features">
+        <ul className="space-y-4 text-sm text-gray-600">
+          <li className="flex items-start gap-3">
+            <div className="mt-1 w-6 h-6 rounded bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <TrendingUp className="w-4 h-4" />
+            </div>
+            <div>
+              <strong className="text-gray-900 block mb-0.5">Cost & Time Overrun Prediction</strong>
+              Anticipates potential cost escalations and milestone delays using data-driven forecasting.
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <div className="mt-1 w-6 h-6 rounded bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
+            <div>
+              <strong className="text-gray-900 block mb-0.5">Explainable Risk Scoring Engine</strong>
+              Assesses individual project risk levels based on continuous project performance tracking, with clear SHAP-based explanations detailing contributing factors.
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <div className="mt-1 w-6 h-6 rounded bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+              <AlertTriangle className="w-4 h-4" />
+            </div>
+            <div>
+              <strong className="text-gray-900 block mb-0.5">Early Warning Alerts System</strong>
+              Generates proactive alerts enabling early intervention for high-risk projects.
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <div className="mt-1 w-6 h-6 rounded bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+              <BarChart3 className="w-4 h-4" />
+            </div>
+            <div>
+              <strong className="text-gray-900 block mb-0.5">AI-Powered Monitoring Dashboard</strong>
+              Provides national and sector-level overviews of high-risk projects, overall risk distribution, and comprehensive benchmarking.
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <div className="mt-1 w-6 h-6 rounded bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+              <MessageSquare className="w-4 h-4" />
+            </div>
+            <div>
+              <strong className="text-gray-900 block mb-0.5">LLM Intelligence Assistant</strong>
+              Engage with a natural-language AI assistant powered by Azure OpenAI to query project data, compare performance across sectors, and extract summarized insights directly from structured data.
+            </div>
+          </li>
+        </ul>
+      </Section>
 
       {/* Data Sources */}
       <Section icon={Database} title="Data Sources">
