@@ -248,11 +248,11 @@ interface SummaryCardProps {
 function SummaryCard({ label, value, subValue, icon: Icon, color, alert }: SummaryCardProps) {
   return (
     <div className="card p-5 relative overflow-hidden">
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide">{label}</p>
-          <p className="text-2xl font-bold text-gray-900 mt-2">{value}</p>
-          {subValue && <p className="text-xs text-gray-400 mt-1">{subValue}</p>}
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide truncate">{label}</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-900 mt-2 truncate">{value}</p>
+          {subValue && <p className="text-xs text-gray-400 mt-1 truncate">{subValue}</p>}
         </div>
         <div
           className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"

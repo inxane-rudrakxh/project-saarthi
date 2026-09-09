@@ -29,17 +29,17 @@ export default function Layout() {
     <div className="flex flex-col md:flex-row h-screen bg-[#f8f9fb]">
       {/* Mobile Top Navbar */}
       <div className="md:hidden flex items-center justify-between px-5 py-3 bg-white border-b border-gray-200/80">
+        <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+          <Menu className="w-6 h-6" />
+        </button>
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-[#0f4c5c] flex items-center justify-center">
-            <Activity className="w-4 h-4 text-white" strokeWidth={2.2} />
-          </div>
           <div>
             <h1 className="text-sm font-bold text-gray-900 leading-tight">ProjectSaarthi</h1>
           </div>
+          <div className="w-8 h-8 rounded-lg bg-[#0f4c5c] flex items-center justify-center">
+            <Activity className="w-4 h-4 text-white" strokeWidth={2.2} />
+          </div>
         </div>
-        <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -mr-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-          <Menu className="w-6 h-6" />
-        </button>
       </div>
 
       {/* Sidebar backdrop for mobile */}

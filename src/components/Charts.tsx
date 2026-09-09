@@ -269,24 +269,24 @@ export function SectorHeatmap({ projects }: SectorHeatmapProps) {
               </span>
             </div>
             
-            <div className="flex items-center gap-4 shrink-0 pl-4">
-              <span className="text-xs text-gray-700 font-medium w-12 text-right">
-                {(s.avgRisk * 100).toFixed(0)}% <span className="text-gray-400 font-normal">avg</span>
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0 pl-2 sm:pl-4">
+              <span className="text-xs text-gray-700 font-medium w-10 sm:w-12 text-right">
+                {(s.avgRisk * 100).toFixed(0)}% <span className="text-gray-400 font-normal hidden sm:inline">avg</span>
               </span>
               
-              <div className="w-[1px] h-3 bg-gray-200" />
+              <div className="hidden sm:block w-[1px] h-3 bg-gray-200" />
               
-              <span className="text-xs text-gray-500 w-16 text-right">
+              <span className="hidden sm:inline-block text-xs text-gray-500 w-16 text-right">
                 {s.count} projs
               </span>
 
-              <div className="w-20 text-right">
+              <div className="w-[72px] sm:w-20 text-right">
                 {s.highRisk > 0 ? (
-                  <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${styleConfig.bg} ${styleConfig.text} border ${styleConfig.border}`}>
+                  <span className={`text-[10px] sm:text-[11px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full ${styleConfig.bg} ${styleConfig.text} border ${styleConfig.border}`}>
                     {s.highRisk} at risk
                   </span>
                 ) : (
-                  <span className="text-[11px] text-gray-400">All healthy</span>
+                  <span className="text-[10px] sm:text-[11px] text-gray-400">All healthy</span>
                 )}
               </div>
             </div>
