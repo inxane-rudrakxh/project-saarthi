@@ -105,16 +105,6 @@ export default function Layout() {
             </NavLink>
           ))}
         </nav>
-
-        <div className="px-5 py-4 border-t border-gray-200/80">
-          <div className="text-[10px] text-gray-400 font-medium leading-relaxed">
-            Data refreshed from<br />Central Monitoring System
-          </div>
-          <div className="mt-2 flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] text-gray-500 font-medium">Live</span>
-          </div>
-        </div>
       </aside>
 
       {/* Main content */}

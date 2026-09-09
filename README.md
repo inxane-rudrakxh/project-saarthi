@@ -18,13 +18,47 @@ Developed to evolve the traditional infrastructure tracking paradigm, this platf
 *   **AI-Powered Monitoring Dashboard:** Provides national and sector-level overviews of high-risk projects, overall risk distribution, and comprehensive benchmarking.
 *   **LLM Intelligence Assistant:** Engage with a natural-language AI assistant to query project data, compare performance across sectors, and extract summarized insights directly from structured data.
 
+## 🏗️ System Architecture
+
+ProjectSaarthi AI employs a modern, decoupled architecture separating data ingestion, cloud persistence, and client-side intelligence.
+
+```mermaid
+graph TD
+    %% Nodes
+    CSV[PAIMANA CSV Data]
+    Script[Python Ingestion Script]
+    DB[(Supabase PostgreSQL)]
+    UI[React Web Client]
+    Risk[Risk & Trend Engine]
+    LLM[Azure OpenAI GPT-4.1-mini]
+
+    %% Connections
+    CSV -->|Read & Parse| Script
+    Script -->|Seed Database| DB
+    DB <-->|Real-time Fetch| UI
+    UI <-->|Calculate Metrics| Risk
+    UI <-->|Natural Language Queries| LLM
+
+    %% Grouping
+    subgraph Client [Client-Side Application]
+        UI
+        Risk
+    end
+    subgraph Cloud [Cloud & AI Services]
+        DB
+        LLM
+    end
+```
+
 ## 🛠️ Technology Stack
 
-*   **Frontend:** [React.js](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), [Vite](https://vitejs.dev/)
-*   **Visualizations:** [Apache ECharts](https://echarts.apache.org/) / [Recharts](https://recharts.org/)
-*   **Backend & Database:** [Supabase](https://supabase.com/) (PostgreSQL)
-*   **Data Ingestion Scripts:** Python / Node.js
-*   **ML & Analytics:** Predictive models (Random Forest, XGBoost simulated/integrated), Feature Engineering heuristics
+*   **Frontend UI:** [React.js](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/), [Lucide Icons](https://lucide.dev/)
+*   **Build Tool:** [Vite](https://vitejs.dev/)
+*   **Visualizations:** [Apache ECharts](https://echarts.apache.org/) (via `echarts-for-react`)
+*   **Backend & Database:** [Supabase](https://supabase.com/) (PostgreSQL cloud database)
+*   **AI & Language Models:** [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) (using `gpt-4.1-mini` for the natural language Assistant Engine)
+*   **Data Ingestion:** Python (Pandas, Requests)
+*   **ML & Analytics:** Algorithmic risk scoring, simulated predictive forecasting, and SHAP-based feature importance heuristics
 
 ## 🚀 Getting Started
 

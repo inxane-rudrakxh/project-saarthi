@@ -56,22 +56,21 @@ Be concise, analytical, and professional. Do not hallucinate data that is not in
 ${context}`;
 
   try {
-    const apiKey = import.meta.env.VITE_GROQ_API_KEY || "";
-    const model = import.meta.env.VITE_GROQ_MODEL || "llama3-8b-8192";
+    const apiKey = import.meta.env.VITE_AZURE_OPENAI_API_KEY || "";
+    const endpoint = import.meta.env.VITE_AZURE_OPENAI_ENDPOINT || "";
 
     let response;
     let retries = 3;
     let delay = 2000;
     
     while (retries > 0) {
-      response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'api-key': apiKey
         },
         body: JSON.stringify({
-          model: model,
           messages: [
             { role: 'system', content: systemPrompt },
             { role: 'user', content: query }

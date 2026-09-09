@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Building2, SlidersHorizontal, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Search, Building2, SlidersHorizontal } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import { Dropdown } from '@/components/Dropdown';
 import { RISK_COLORS, formatCurrency, riskToColor } from '@/lib/ui';
@@ -10,6 +10,7 @@ type RiskFilter = 'ALL' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 
 export default function Projects() {
   const { projects, loading } = useData();
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [sectorFilter, setSectorFilter] = useState('ALL');
   const [riskFilter, setRiskFilter] = useState<RiskFilter>('ALL');
@@ -101,7 +102,6 @@ export default function Projects() {
                   <th className="text-right text-xs font-semibold text-gray-400 uppercase tracking-wide py-3 px-4">Overrun</th>
                   <th className="text-right text-xs font-semibold text-gray-400 uppercase tracking-wide py-3 px-4">Delay</th>
                   <th className="text-center text-xs font-semibold text-gray-400 uppercase tracking-wide py-3 px-4">Risk</th>
-                  <th className="w-8"></th>
                 </tr>
               </thead>
               <tbody>
@@ -110,12 +110,13 @@ export default function Projects() {
                   return (
                     <tr
                       key={p.id}
-                      className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors group"
+                      onClick={() => navigate(`/projects/${p.id}`)}
+                      className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors cursor-pointer group"
                     >
                       <td className="py-3.5 px-4">
-                        <Link to={`/projects/${p.id}`} className="text-sm font-medium text-gray-800 hover:text-[#0f4c5c] transition-colors">
+                        <span className="text-sm font-medium text-gray-800 group-hover:text-[#0f4c5c] transition-colors">
                           {p.name}
-                        </Link>
+                        </span>
                         <p className="text-xs text-gray-400 mt-0.5">{p.id}</p>
                       </td>
                       <td className="py-3.5 px-4 text-sm text-gray-600">{p.sector}</td>
@@ -143,11 +144,6 @@ export default function Projects() {
                             {p.riskLevel}
                           </span>
                         </div>
-                      </td>
-                      <td className="py-3.5 px-2">
-                        <Link to={`/projects/${p.id}`} className="text-gray-300 group-hover:text-[#0f4c5c] transition-colors">
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
                       </td>
                     </tr>
                   );
