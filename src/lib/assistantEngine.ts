@@ -45,6 +45,19 @@ export async function answerQuery(
 Use the provided portfolio data to answer the user's questions accurately.
 Be concise, analytical, and professional. Do not hallucinate data that is not in the context.
 
+IF the user explicitly asks for a chart, graph, or visualization (e.g. "show me a bar chart", "plot the risk"), you MUST output a JSON block formatted exactly like this inside your markdown response:
+\`\`\`json chart_config
+{
+  "type": "bar", // or "line" or "pie"
+  "title": "Chart Title",
+  "labels": ["Label 1", "Label 2"],
+  "datasets": [
+    { "label": "Dataset 1", "data": [10, 20] }
+  ]
+}
+\`\`\`
+Ensure the data exactly matches the portfolio context provided.
+
 ${context}`;
 
   try {

@@ -6,6 +6,7 @@ import type { Citation } from '@/lib/assistantEngine';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import ReactECharts from 'echarts-for-react';
 
 export default function Assistant() {
   const { projects, alerts, loading, chatMessages, setChatMessages } = useData();
@@ -115,7 +116,84 @@ export default function Assistant() {
                     <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.text}</p>
                   ) : (
                     <div className="text-sm prose prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-gray-100 prose-pre:text-gray-800 prose-a:text-[#0f4c5c]">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          code(props: any) {
+                            const {children, className, node, ...rest} = props;
+                            const match = /language-(\w+)/.exec(className || '');
+                            const isJson = match && match[1] === 'json';
+                            
+                            if (isJson) {
+                              try {
+                                const config = JSON.parse(String(children).replace(/\n$/, ''));
+                                if (config.type && config.labels && config.datasets) {
+                                  let option = {};
+                                  if (config.type === 'bar') {
+                                    option = {
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      tooltip: { trigger: 'axis', axisPointer: { type: 'none' } },
+                                      xAxis: { type: 'category', data: config.labels, axisLabel: { interval: 0, rotate: 30, fontSize: 10 } },
+                                      yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
+                                      series: config.datasets.map((d: any, i: number) => ({
+                                        name: d.label,
+                                        type: 'bar',
+                                        data: d.data,
+                                        itemStyle: { color: i === 0 ? '#0f4c5c' : '#f97316', borderRadius: [4, 4, 0, 0] }
+                                      })),
+                                      grid: { top: 40, right: 10, bottom: 40, left: 40 }
+                                    };
+                                  } else if (config.type === 'line') {
+                                    option = {
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      tooltip: { trigger: 'axis' },
+                                      xAxis: { type: 'category', data: config.labels, axisLabel: { fontSize: 10 } },
+                                      yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
+                                      series: config.datasets.map((d: any, i: number) => ({
+                                        name: d.label,
+                                        type: 'line',
+                                        data: d.data,
+                                        smooth: true,
+                                        itemStyle: { color: i === 0 ? '#0f4c5c' : '#f97316' }
+                                      })),
+                                      grid: { top: 40, right: 10, bottom: 30, left: 40 }
+                                    };
+                                  } else if (config.type === 'pie') {
+                                    option = {
+                                      title: { text: config.title, textStyle: { fontSize: 13, color: '#374151' } },
+                                      tooltip: { trigger: 'item' },
+                                      series: [
+                                        {
+                                          type: 'pie',
+                                          radius: '60%',
+                                          data: config.labels.map((l: string, i: number) => ({
+                                            name: l,
+                                            value: config.datasets[0].data[i]
+                                          })),
+                                          itemStyle: {
+                                            borderRadius: 4,
+                                            borderColor: '#fff',
+                                            borderWidth: 2
+                                          }
+                                        }
+                                      ]
+                                    };
+                                  }
+                      
+                                  return (
+                                    <div className="my-4 p-4 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden" style={{ minWidth: 300 }}>
+                                      <ReactECharts option={option} style={{ height: 260, width: '100%' }} />
+                                    </div>
+                                  );
+                                }
+                              } catch (e) {
+                                // Fallback to normal code block
+                              }
+                            }
+                            return <code className={className} {...rest}>{children}</code>;
+                          }
+                        }}
+                      >
                         {msg.text}
                       </ReactMarkdown>
                     </div>

@@ -244,55 +244,65 @@ export function SectorHeatmap({ projects }: SectorHeatmapProps) {
       highRisk,
       totalCost: projs.reduce((s, p) => s + p.revisedCostCr, 0),
     };
-  }).sort((a, b) => b.avgRisk - a.avgRisk);
+  }).sort((a, b) => a.avgRisk - b.avgRisk); // ascending for horizontal bar chart (largest on top)
 
-  return (
-    <div className="flex flex-col gap-1">
-      {sectorStats.map((s) => {
-        // Find the RiskLevel so we can use its styling
-        let level: RiskLevel = 'LOW';
-        if (s.avgRisk >= 0.75) level = 'CRITICAL';
-        else if (s.avgRisk >= 0.55) level = 'HIGH';
-        else if (s.avgRisk >= 0.35) level = 'MEDIUM';
+  const option = {
+    grid: { top: 10, right: 30, bottom: 20, left: 130 },
+    tooltip: {
+      trigger: 'axis' as const,
+      axisPointer: { type: 'none' as const },
+      backgroundColor: '#fff',
+      borderColor: '#e8eaed',
+      textStyle: { color: '#1a1a2e', fontSize: 12 },
+      formatter: (params: any) => {
+        const p = params[0];
+        const stat = sectorStats[p.dataIndex];
+        return `<div style="font-size:12px">
+          <div style="font-weight:600;margin-bottom:4px">${p.name}</div>
+          <div style="color:#6b7280">Avg Risk: <span style="font-medium;color:#1a1a2e">${(stat.avgRisk * 100).toFixed(1)}%</span></div>
+          <div style="color:#6b7280">Projects: <span style="font-medium;color:#1a1a2e">${stat.count}</span></div>
+          <div style="color:#6b7280">At Risk: <span style="font-medium;color:#dc2626">${stat.highRisk}</span></div>
+        </div>`;
+      },
+    },
+    xAxis: {
+      type: 'value' as const,
+      max: 1,
+      axisLabel: { 
+        formatter: (val: number) => `${(val * 100).toFixed(0)}%`, 
+        fontSize: 10, 
+        color: '#9ca3af' 
+      },
+      splitLine: { lineStyle: { color: '#f3f4f6', type: 'dashed' as const } },
+    },
+    yAxis: {
+      type: 'category' as const,
+      data: sectorStats.map(s => s.sector),
+      axisLabel: { 
+        fontSize: 11, 
+        color: '#4b5563',
+        width: 120,
+        overflow: 'truncate'
+      },
+      axisLine: { show: false },
+      axisTick: { show: false },
+    },
+    series: [
+      {
+        type: 'bar',
+        data: sectorStats.map(s => ({
+          value: s.avgRisk,
+          itemStyle: {
+            color: riskToColor(s.avgRisk),
+            borderRadius: [0, 4, 4, 0]
+          }
+        })),
+        barWidth: '60%',
+        showBackground: true,
+        backgroundStyle: { color: '#f9fafb', borderRadius: [0, 4, 4, 0] }
+      }
+    ]
+  };
 
-        const styleConfig = RISK_COLORS[level];
-
-        return (
-          <div
-            key={s.sector}
-            className="group flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-all border border-transparent cursor-pointer"
-          >
-            <div className="flex items-center gap-3 overflow-hidden flex-1">
-              <div className={`w-2 h-2 rounded-full ${styleConfig.dot} shrink-0`} />
-              <span className="text-sm font-medium text-gray-700 truncate group-hover:text-gray-900 transition-colors">
-                {s.sector}
-              </span>
-            </div>
-            
-            <div className="flex items-center gap-2 sm:gap-4 shrink-0 pl-2 sm:pl-4">
-              <span className="text-xs text-gray-700 font-medium w-10 sm:w-12 text-right">
-                {(s.avgRisk * 100).toFixed(0)}% <span className="text-gray-400 font-normal hidden sm:inline">avg</span>
-              </span>
-              
-              <div className="hidden sm:block w-[1px] h-3 bg-gray-200" />
-              
-              <span className="hidden sm:inline-block text-xs text-gray-500 w-16 text-right">
-                {s.count} projs
-              </span>
-
-              <div className="w-[72px] sm:w-20 text-right">
-                {s.highRisk > 0 ? (
-                  <span className={`text-[10px] sm:text-[11px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full ${styleConfig.bg} ${styleConfig.text} border ${styleConfig.border}`}>
-                    {s.highRisk} at risk
-                  </span>
-                ) : (
-                  <span className="text-[10px] sm:text-[11px] text-gray-400">All healthy</span>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
+  return <ReactECharts option={option} style={{ height: 320, width: '100%' }} />;
 }
