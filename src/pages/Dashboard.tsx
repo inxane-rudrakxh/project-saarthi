@@ -62,7 +62,7 @@ export default function Dashboard() {
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <SummaryCard
           label="Total Projects"
           value={String(stats.totalProjects)}
@@ -95,9 +95,9 @@ export default function Dashboard() {
       </div>
 
       {/* Two column layout */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Sector heatmap */}
-        <div className="col-span-2 card p-6">
+        <div className="lg:col-span-2 card p-6">
           <div className="flex items-center justify-between mb-5">
             <div>
               <h2 className="text-base font-semibold text-gray-900">Sector Risk Heatmap</h2>

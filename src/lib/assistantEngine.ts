@@ -57,26 +57,51 @@ ${context}`;
 
   try {
     const apiKey = import.meta.env.VITE_GROQ_API_KEY || "";
-    const model = import.meta.env.VITE_GROQ_MODEL || "groq/compound-mini";
+    const model = import.meta.env.VITE_GROQ_MODEL || "llama3-8b-8192";
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        model: model,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: query }
-        ],
-        stream: false
-      })
-    });
+    let response;
+    let retries = 3;
+    let delay = 2000;
+    
+    while (retries > 0) {
+      response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: query }
+          ],
+          stream: false
+        })
+      });
 
-    if (!response.ok) {
-      throw new Error(`Groq API returned status: ${response.status}`);
+      if (response.ok) {
+        break;
+      }
+      
+      if (response.status === 429) {
+        retries--;
+        if (retries === 0) break;
+        console.warn(`Rate limited (429). Retrying in ${delay}ms...`);
+        await new Promise(res => setTimeout(res, delay));
+        delay *= 2; // exponential backoff
+      } else {
+        break; // Break on other errors (401, 500, etc)
+      }
+    }
+
+    if (!response || !response.ok) {
+      if (response?.status === 429) {
+        throw new Error("Rate limit exceeded. The free API receives too many requests. Please wait a moment and try again.");
+      }
+      
+      const errorText = await response?.text().catch(() => '') || '';
+      throw new Error(`API returned status: ${response?.status} ${errorText}`);
     }
 
     const data = await response.json();
@@ -100,7 +125,7 @@ ${context}`;
   } catch (err: any) {
     console.error("Assistant LLM Error:", err);
     return {
-      text: `Error connecting to the AI Agent: ${err.message}. Please check your Ollama endpoint and API key.`,
+      text: `Error connecting to the AI Agent: ${err.message}`,
       citations: [],
     };
   }

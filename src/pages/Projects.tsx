@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Building2, SlidersHorizontal, ArrowRight } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
+import { Dropdown } from '@/components/Dropdown';
 import { RISK_COLORS, formatCurrency, riskToColor } from '@/lib/ui';
 import { SECTORS } from '@/lib/dataGenerator';
 
@@ -58,27 +59,27 @@ export default function Projects() {
         </div>
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="w-4 h-4 text-gray-400" />
-          <select
+          <Dropdown
             value={sectorFilter}
-            onChange={(e) => setSectorFilter(e.target.value)}
-            className="input w-auto py-2 cursor-pointer"
-          >
-            <option value="ALL">All Sectors</option>
-            {SECTORS.map((s) => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
-          <select
+            onChange={setSectorFilter}
+            options={[
+              { value: 'ALL', label: 'All Sectors' },
+              ...SECTORS.map(s => ({ value: s, label: s }))
+            ]}
+            className="w-48"
+          />
+          <Dropdown
             value={riskFilter}
-            onChange={(e) => setRiskFilter(e.target.value as RiskFilter)}
-            className="input w-auto py-2 cursor-pointer"
-          >
-            <option value="ALL">All Risk Levels</option>
-            <option value="CRITICAL">Critical</option>
-            <option value="HIGH">High</option>
-            <option value="MEDIUM">Medium</option>
-            <option value="LOW">Low</option>
-          </select>
+            onChange={(val) => setRiskFilter(val as RiskFilter)}
+            options={[
+              { value: 'ALL', label: 'All Risk Levels' },
+              { value: 'CRITICAL', label: 'Critical' },
+              { value: 'HIGH', label: 'High' },
+              { value: 'MEDIUM', label: 'Medium' },
+              { value: 'LOW', label: 'Low' },
+            ]}
+            className="w-40"
+          />
         </div>
       </div>
 
