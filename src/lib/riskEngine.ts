@@ -186,22 +186,42 @@ export function scoreProject(project: Project): Project {
   const latestSnapshot = project.snapshots[project.snapshots.length - 1];
   const riskScore = computeRiskScore(project, latestSnapshot);
   const shapFactors = computeShapFactors(project, latestSnapshot);
+  
+  const features = engineerFeatures(project, latestSnapshot);
+  
+  // Mock Anomaly Detection: High deviation but normal cost ratio, or vice versa
+  const isAnomalous = Math.abs(features.progressDeviation) > 0.15 && features.expenditureRateRatio > 1.2;
+  let anomalyScore = 0;
+  if (isAnomalous) {
+    anomalyScore = - (Math.abs(features.progressDeviation) * features.expenditureRateRatio);
+  }
 
   return {
     ...project,
     riskScore: Math.round(riskScore * 10000) / 10000,
     riskLevel: riskLevelFromScore(riskScore),
     shapFactors,
+    isAnomalous,
+    ...(isAnomalous && { anomalyScore })
   };
 }
 
 export function scoreAllSnapshots(project: Project): ProjectSnapshot[] {
   return project.snapshots.map((snap) => {
     const score = computeRiskScore(project, snap);
+    const features = engineerFeatures(project, snap);
+    const isAnomalous = Math.abs(features.progressDeviation) > 0.15 && features.expenditureRateRatio > 1.2;
+    let anomalyScore = 0;
+    if (isAnomalous) {
+      anomalyScore = - (Math.abs(features.progressDeviation) * features.expenditureRateRatio);
+    }
+    
     return {
       ...snap,
       riskScore: Math.round(score * 10000) / 10000,
       riskLevel: riskLevelFromScore(score),
+      isAnomalous,
+      ...(isAnomalous && { anomalyScore })
     };
   });
 }
@@ -245,6 +265,7 @@ export function generateAlerts(projects: Project[]): Alert[] {
     const riskScore = project.riskScore;
     const trend = analyzeTrend(project);
 
+    // Standard Risk Alert
     if (riskScore >= 0.55 || (riskScore >= 0.35 && trend.isDeteriorating)) {
       const topFactors = project.shapFactors
         .filter((f) => f.direction === 'risk_up')
@@ -260,6 +281,19 @@ export function generateAlerts(projects: Project[]): Alert[] {
           snapshotDate: latestSnapshot.snapshotDate,
         });
       }
+    } else if (project.isAnomalous) {
+      // Anomaly Alert (if not already covered by high risk)
+      alerts.push({
+        id: alertId++,
+        projectId: project.id,
+        projectName: project.name,
+        level: 'HIGH', // Anomalies are treated as HIGH risk alerts
+        triggeringFactors: [
+          { feature: 'Progress Deviation from Plan', contribution: 0.5, value: 'High', direction: 'risk_up' },
+          { feature: 'Expenditure vs Physical Progress', contribution: 0.4, value: 'Abnormal', direction: 'risk_up' }
+        ],
+        snapshotDate: latestSnapshot.snapshotDate,
+      });
     }
   }
 

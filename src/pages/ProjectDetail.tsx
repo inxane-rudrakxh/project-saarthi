@@ -16,6 +16,7 @@ import {
   Loader2,
   Printer,
   FileText,
+  ScanSearch,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import { RISK_COLORS, formatCurrency, formatDate } from '@/lib/ui';
@@ -275,6 +276,22 @@ export default function ProjectDetail() {
       )}
 
       {/* Alert banner if applicable */}
+      {/* Anomaly Engine Alert banner */}
+      {project.isAnomalous ? (
+        <div className={`mt-6 card p-5 border-l-8 border-[#F5A623] bg-orange-50 flex items-center gap-4`}>
+          <ScanSearch className={`w-8 h-8 text-[#F5A623]`} />
+          <div>
+            <p className={`text-base font-bold uppercase tracking-wide text-[#F5A623]`}>
+              Anomaly Engine Alert
+            </p>
+            <p className="text-sm font-medium text-gray-800 mt-1">
+              AI analysis detected an abnormal relationship between physical progress and expenditure trajectory.
+            </p>
+          </div>
+        </div>
+      ) : null}
+
+      {/* Official Alert banner if applicable */}
       {project.riskLevel === 'CRITICAL' || project.riskLevel === 'HIGH' ? (
         <div className={`mt-6 card p-5 border-l-8 ${colors.border} ${colors.bg} flex items-center gap-4`}>
           <AlertTriangle className={`w-8 h-8 ${colors.text}`} />

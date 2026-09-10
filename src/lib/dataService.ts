@@ -25,6 +25,7 @@ function projectToRow(p: Project): ProjectRow {
     time_overrun_flag: p.timeOverrunFlag,
     delay_days: p.delayDays,
     shap_factors: p.shapFactors as unknown as ShapFactor[],
+    is_anomalous: p.isAnomalous,
   };
 }
 
@@ -49,6 +50,7 @@ function rowToProject(row: ProjectRow, snapshots: SnapshotRow[]): Project {
     timeOverrunFlag: row.time_overrun_flag,
     delayDays: row.delay_days,
     shapFactors: (row.shap_factors as unknown as ShapFactor[]) ?? [],
+    isAnomalous: (row as any).is_anomalous,
     snapshots: snapshots
       .sort((a, b) => a.snapshot_date.localeCompare(b.snapshot_date))
       .map((s) => ({
@@ -82,6 +84,7 @@ function snapshotToRow(s: Project['snapshots'][0]): SnapshotRow {
     schedule_variance_days: s.scheduleVarianceDays,
     risk_score: s.riskScore,
     risk_level: s.riskLevel,
+    is_anomalous: s.isAnomalous,
   };
 }
 

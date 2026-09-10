@@ -18,6 +18,9 @@ export interface ProjectSnapshot {
   scheduleVarianceDays: number;
   riskScore: number;
   riskLevel: RiskLevel;
+  isAnomalous?: boolean;
+  anomalyScore?: number;
+  anomalyFactors?: ShapFactor[];
 }
 
 export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
@@ -43,6 +46,7 @@ export interface Project {
   delayDays: number;
   shapFactors: ShapFactor[];
   snapshots: ProjectSnapshot[];
+  isAnomalous?: boolean;
 }
 
 export interface Alert {

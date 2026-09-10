@@ -24,6 +24,12 @@ We trained three configurations per task:
 
 *The full ablation deltas are automatically generated in `output/ablation_report.json`.*
 
+## Anomaly Engine (Trajectory & Relationship Anomalies)
+The new Anomaly Engine uses an `IsolationForest` to monitor the project's snapshots over time. Rather than relying on simple thresholds (e.g., Cost > 15%), it learns the expected multi-variate relationships between physical progress, financial progress, expenditure ratios, and schedule.
+- When an abnormal combination of metrics is detected (e.g., High Financial Progress but Low Physical Progress), it flags the snapshot as anomalous.
+- Explainability is provided via `shap.TreeExplainer`, mapping the negative SHAP factors to pinpoint exactly which metric is driving the anomaly.
+- Results are saved to `output/project_anomalies.json`.
+
 ## SHAP Explanations
 Real SHAP values are computed using `shap.TreeExplainer` applied to our trained LightGBM Risk Regressor. 
 The explainer evaluates feature contributions for each project in the test set.
@@ -34,7 +40,8 @@ The pipeline produces outputs specifically shaped to plug directly into the exis
 ### Output Files (`ml/output/`)
 - `model_metrics.json`: Accuracy, precision, recall, RMSE, etc., formatted to exactly match the frontend's `ModelMetric` interface.
 - `project_risk.json`: Per-project risk scores and `ShapFactor` arrays ready for frontend injection.
-- `models/*.txt`: Saved LightGBM boosters.
+- `project_anomalies.json`: Per-project, per-snapshot anomaly scores and SHAP explainability factors.
+- `models/*.txt` and `*.pkl`: Saved LightGBM boosters and Isolation Forest.
 
 ### How to Run
 1. Create and activate a Python virtual environment:
@@ -46,10 +53,11 @@ The pipeline produces outputs specifically shaped to plug directly into the exis
    ```bash
    pip install -r requirements.txt
    ```
-3. Generate data and train models:
+3. Generate data, train models, and run anomaly engine:
    ```bash
    python generate_data.py
    python train_models.py
+   python train_anomaly_engine.py
    ```
 4. Score an arbitrary project:
    ```bash
