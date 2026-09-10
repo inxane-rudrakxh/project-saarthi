@@ -29,7 +29,7 @@ export default function Projects() {
         if (sectorFilter !== 'ALL' && p.sector !== sectorFilter) return false;
         if (riskFilter !== 'ALL' && p.riskLevel !== riskFilter) return false;
         if (yearFilter !== 'ALL') {
-          if (!p.originalStartDate.startsWith(yearFilter) && !p.revisedCompletionDate.startsWith(yearFilter)) return false;
+          if (!p.originalStartDate.startsWith(yearFilter) && !p.revisedCompletionDate?.startsWith(yearFilter)) return false;
         }
         return true;
       });

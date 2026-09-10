@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   const filteredProjects = useMemo(() => {
     if (selectedYear === 'ALL') return projects;
-    return projects.filter(p => p.originalStartDate.startsWith(selectedYear) || p.revisedCompletionDate.startsWith(selectedYear));
+    return projects.filter(p => p.originalStartDate.startsWith(selectedYear) || p.revisedCompletionDate?.startsWith(selectedYear));
   }, [projects, selectedYear]);
 
   const stats = useMemo(() => {

@@ -15,6 +15,7 @@ import {
   Sparkles,
   Loader2,
   Printer,
+  FileText,
 } from 'lucide-react';
 import { useData } from '@/lib/DataContext';
 import { RISK_COLORS, formatCurrency, formatDate } from '@/lib/ui';
@@ -57,10 +58,6 @@ export default function ProjectDetail() {
   const trend = analyzeTrend(project);
   const latestSnap = project.snapshots[project.snapshots.length - 1];
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <div className="p-8 w-full print-page">
       {/* Breadcrumb & Actions */}
@@ -73,11 +70,11 @@ export default function ProjectDetail() {
         </button>
         <div className="flex gap-2">
           <button
-            onClick={handlePrint}
+            onClick={() => navigate(`/projects/${project.id}/brief`)}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-300 text-gov-navy-dark text-sm font-medium rounded-md hover:bg-gray-50 transition-colors shadow-sm print:hidden"
           >
-            <Printer className="w-4 h-4 text-gov-navy" />
-            Export to PDF
+            <FileText className="w-4 h-4 text-gov-navy" />
+            Generate Ministerial Brief
           </button>
           <Link
             to={`/assistant?q=${encodeURIComponent(`Give me a brief summary of ${project.name} (${project.id}) and explain its primary risk factors.`)}`}
