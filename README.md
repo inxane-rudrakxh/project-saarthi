@@ -14,10 +14,10 @@ Developed to evolve the traditional infrastructure tracking paradigm, this platf
 
 *   **Cost & Time Overrun Prediction:** Anticipates potential cost escalations and milestone delays using data-driven forecasting powered by **LightGBM**.
 *   **Explainable Risk Scoring Engine:** Assesses individual project risk levels based on continuous project performance tracking, with clear **SHAP-based explanations** detailing contributing factors.
+*   **Generative AI Ministerial Briefing (One-Click):** Automatically generates highly formal, print-optimized "Executive Briefing" documents for MoSPI officials using the LLM, synthesizing financial variances and SHAP risk drivers into official bureaucratic reports.
 *   **Early Warning Alerts System:** Generates proactive alerts enabling early intervention for high-risk projects.
-*   **Automated PDF Reporting:** Dynamically generates styled, downloadable PDF reports outlining risk scores, risk levels, and SHAP feature drivers for any project.
 *   **AI-Powered Monitoring Dashboard:** Provides national and sector-level overviews of high-risk projects, overall risk distribution, and comprehensive benchmarking.
-*   **LLM Intelligence Assistant:** Engage with a natural-language AI assistant to query project data, compare performance across sectors, and extract summarized insights directly from structured data.
+*   **Self-Verifying LLM Assistant:** Engage with a natural-language AI assistant to query project data and generate dynamic ECharts. The LLM utilizes a Chain-of-Thought self-verification loop to guarantee zero hallucinations and numerical accuracy before responding.
 
 ## 🏗️ System Architecture
 
@@ -25,30 +25,41 @@ ProjectSaarthi AI employs a modern, decoupled architecture separating data inges
 
 ```mermaid
 graph TD
-    %% Nodes
+    %% External Data
     CSV[PAIMANA CSV Data]
-    Script[Python Ingestion Script]
-    DB[(Supabase PostgreSQL)]
-    UI[React Web Client]
-    Risk[Risk & Trend Engine]
-    LLM[Azure OpenAI GPT-4.1-mini]
+
+    %% Data Pipeline
+    subgraph Backend & ML Pipeline
+        Ingest[Python Ingestion Script]
+        ML[Model Training: LightGBM]
+        Predict[Risk Scoring & SHAP Generation]
+    end
+
+    %% Cloud Services
+    subgraph Cloud Infrastructure
+        DB[(Supabase PostgreSQL)]
+        LLM[Azure OpenAI GPT-4.1-mini]
+    end
+
+    %% Client Side
+    subgraph Client-Side Application
+        UI[React Web Client: Dashboard]
+        Charts[ECharts Visualization]
+        Assistant[AI Briefing & Assistant]
+    end
 
     %% Connections
-    CSV -->|Read & Parse| Script
-    Script -->|Seed Database| DB
-    DB <-->|Real-time Fetch| UI
-    UI <-->|Calculate Metrics| Risk
-    UI <-->|Natural Language Queries| LLM
+    CSV -->|Extract & Clean| Ingest
+    Ingest -->|Seed Projects & Snapshots| DB
 
-    %% Grouping
-    subgraph Client [Client-Side Application]
-        UI
-        Risk
-    end
-    subgraph Cloud [Cloud & AI Services]
-        DB
-        LLM
-    end
+    ML -->|Trained Weights| Predict
+    DB -->|Fetch Latest Snapshots| Predict
+    Predict -->|Write Risk Scores & SHAP Explanations| DB
+
+    DB <-->|Real-time Data Sync| UI
+    UI -->|Render Data| Charts
+    UI <-->|Context & Prompts| Assistant
+    Assistant <-->|Natural Language Generation| LLM
 ```
 
 ## 🛠️ Technology Stack
