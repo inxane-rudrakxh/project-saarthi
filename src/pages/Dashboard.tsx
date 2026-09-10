@@ -216,54 +216,67 @@ export default function Dashboard() {
         </div>
 
         {/* Right: Alert feed */}
-        <div className="card p-6">
-          <div className="flex items-center justify-between mb-5 border-b border-gray-200 pb-3">
-            <div>
-              <h2 className="text-lg font-semibold text-gov-navy-dark">Early Warnings</h2>
-              <p className="text-xs font-medium text-gov-gray-dark mt-1 uppercase">{alerts.length} active alerts</p>
+        <div className="card p-6 shadow-xl shadow-red-900/10 relative overflow-hidden bg-gradient-to-br from-white to-red-50/50 border border-red-50">
+          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#d83933] to-orange-400" />
+          <div className="absolute top-0 right-0 w-48 h-48 bg-red-400/10 rounded-full blur-3xl animate-[pulse_4s_ease-in-out_infinite]" />
+          <div className="relative">
+            <div className="flex items-center justify-between mb-5 border-b border-red-100 pb-3">
+              <div>
+                <h2 className="text-lg font-extrabold text-[#d83933] flex items-center gap-2">
+                  <span className="relative flex h-3 w-3 mr-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#d83933]"></span>
+                  </span>
+                  Early Warnings
+                </h2>
+                <p className="text-xs font-bold text-red-500 mt-1 uppercase tracking-wider">{alerts.length} active alerts require attention</p>
+              </div>
+              <Link
+                to="/alerts"
+                className="flex items-center gap-1 text-sm font-bold text-[#d83933] hover:text-red-900 transition-all hover:translate-x-1"
+              >
+                View All <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <Link
-              to="/alerts"
-              className="flex items-center gap-1 text-sm font-bold text-gov-blue hover:underline transition-all"
-            >
-              View All <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
 
-          {recentAlerts.length === 0 ? (
-            <p className="text-sm font-bold text-gray-500 py-8 text-center">No active alerts</p>
-          ) : (
-            <div className="space-y-3">
-              {recentAlerts.map((alert) => {
-                const colors = RISK_COLORS[alert.level];
-                return (
-                  <Link
-                    key={alert.id}
-                    to={`/projects/${alert.projectId}`}
-                    className="block p-3 border-l-4 border-gray-300 bg-gray-50 hover:bg-white hover:border-gov-navy transition-all group"
-                  >
-                    <div className="flex items-start gap-2.5">
-                      <div className={`w-3 h-3 ${colors.bg} border border-black mt-1 shrink-0`} />
-                      <div className="min-w-0 flex-1">
-                        <p className="text-sm font-bold text-gov-navy-dark truncate group-hover:underline transition-colors">
-                          {alert.projectName}
-                        </p>
-                        <p className="text-xs text-gray-600 mt-1 font-mono">
-                          {alert.triggeringFactors[0]?.feature ?? 'Multiple factors'}
-                        </p>
-                        <div className="flex items-center gap-2 mt-2">
-                          <span className={`badge ${colors.bg} ${colors.text} ${colors.border} text-[10px]`}>
-                            {alert.level}
-                          </span>
-                          <span className="text-[10px] font-bold text-gov-gray-dark">{formatDate(alert.snapshotDate)}</span>
+            {recentAlerts.length === 0 ? (
+              <p className="text-sm font-bold text-gray-500 py-8 text-center">No active alerts</p>
+            ) : (
+              <div className="space-y-4">
+                {recentAlerts.map((alert) => {
+                  const colors = RISK_COLORS[alert.level];
+                  return (
+                    <Link
+                      key={alert.id}
+                      to={`/projects/${alert.projectId}`}
+                      className="block p-4 border border-red-100 bg-white/80 backdrop-blur-sm rounded-lg hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden"
+                    >
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#d83933] to-orange-400 opacity-80 group-hover:opacity-100 transition-opacity" />
+                      <div className="flex items-start gap-3 pl-2">
+                        <div className={`w-10 h-10 rounded-full ${colors.bg} ${colors.text} flex items-center justify-center shrink-0 border border-red-100 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
+                          <AlertTriangle className="w-5 h-5" strokeWidth={2.5} />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-sm font-bold text-gray-900 truncate group-hover:text-[#d83933] transition-colors">
+                            {alert.projectName}
+                          </p>
+                          <p className="text-xs text-gray-600 mt-1 font-medium bg-gray-50 inline-block px-2 py-0.5 rounded border border-gray-100">
+                            {alert.triggeringFactors[0]?.feature ?? 'Multiple factors'}
+                          </p>
+                          <div className="flex items-center gap-3 mt-3">
+                            <span className={`badge ${colors.bg} ${colors.text} ${colors.border} text-[10px] shadow-sm`}>
+                              {alert.level}
+                            </span>
+                            <span className="text-[10px] font-bold text-gray-400">{formatDate(alert.snapshotDate)}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -66,59 +66,71 @@ export default function Alerts() {
       </div>
 
       {/* Alert list */}
+      {/* Alert list */}
       {filtered.length === 0 ? (
-        <div className="card p-12 text-center">
-          <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3">
-            <AlertTriangle className="w-6 h-6 text-emerald-500" />
+        <div className="card p-12 text-center bg-white/50 backdrop-blur-sm border-dashed">
+          <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4 animate-bounce">
+            <AlertTriangle className="w-8 h-8 text-emerald-600" />
           </div>
-          <p className="text-sm text-gray-500">No alerts at this level.</p>
+          <p className="text-base font-semibold text-gray-600">No alerts at this level.</p>
+          <p className="text-xs text-gray-400 mt-1">Everything looks good.</p>
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-4">
           {filtered.map((alert) => {
             const colors = RISK_COLORS[alert.level];
             return (
               <Link
                 key={alert.id}
                 to={`/projects/${alert.projectId}`}
-                className="card p-5 flex items-start gap-4 hover:shadow-md transition-all group relative overflow-hidden"
+                className="block p-5 bg-white border border-gray-200 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
               >
                 <div
-                  className="absolute inset-y-0 left-0 w-16 pointer-events-none"
-                  style={{ background: `linear-gradient(to right, ${colors.hex}12, transparent)` }}
+                  className="absolute inset-y-0 left-0 w-24 pointer-events-none opacity-30 group-hover:opacity-50 transition-opacity"
+                  style={{ background: `linear-gradient(to right, ${colors.hex}40, transparent)` }}
                 />
-                {/* Level indicator */}
-                <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center shrink-0`}>
-                  <AlertTriangle className={`w-5 h-5 ${colors.text}`} strokeWidth={2.2} />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2.5 mb-1">
-                    <h3 className="text-sm font-semibold text-gray-900 group-hover:text-[#1B2B5E] transition-colors">
-                      {alert.projectName}
-                    </h3>
-                    <span className={`badge ${colors.bg} ${colors.text} ${colors.border} text-[10px]`}>
-                      {alert.level}
-                    </span>
+                <div className="absolute left-0 top-0 bottom-0 w-1.5 opacity-80 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: colors.hex }} />
+                
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 relative z-10 pl-2">
+                  {/* Level indicator */}
+                  <div className={`w-12 h-12 rounded-full ${colors.bg} ${colors.text} flex items-center justify-center shrink-0 border border-white shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                    <AlertTriangle className="w-6 h-6" strokeWidth={2.5} />
                   </div>
-                  <p className="text-xs text-gray-400 mb-2">{alert.projectId} · {formatDate(alert.snapshotDate)}</p>
 
-                  {/* Triggering factors */}
-                  <div className="flex flex-wrap gap-2">
-                    {alert.triggeringFactors.map((factor, i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-[#e8ecf7] text-[#1B2B5E] border border-[#c5cde6]"
-                      >
-                        {factor.feature}
-                        <span className="text-gray-400 font-mono">{factor.value}</span>
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-1.5">
+                      <h3 className="text-base font-bold text-gray-900 group-hover:text-gov-blue transition-colors">
+                        {alert.projectName}
+                      </h3>
+                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold shadow-sm ${colors.bg} ${colors.text} border border-white`}>
+                        {alert.level}
                       </span>
-                    ))}
+                    </div>
+                    <p className="text-sm text-gray-500 mb-3 font-medium flex items-center gap-2">
+                      <span className="font-mono bg-gray-100 px-1.5 py-0.5 rounded text-xs">{alert.projectId}</span>
+                      <span>•</span>
+                      <span>{formatDate(alert.snapshotDate)}</span>
+                    </p>
+
+                    {/* Triggering factors */}
+                    <div className="flex flex-wrap gap-2">
+                      {alert.triggeringFactors.map((factor, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-gray-50 text-gray-700 border border-gray-200 shadow-sm group-hover:border-gray-300 transition-colors"
+                        >
+                          <span className="opacity-70">{factor.feature}:</span>
+                          <span className="font-mono text-gov-blue">{factor.value}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 group-hover:bg-gov-blue/10 transition-colors shrink-0">
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gov-blue transition-colors group-hover:translate-x-0.5" />
                   </div>
                 </div>
-
-                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#F5A623] transition-colors mt-2 shrink-0" />
               </Link>
             );
           })}
